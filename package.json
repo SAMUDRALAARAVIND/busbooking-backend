@@ -1,0 +1,21 @@
+{
+  "name": "abhibus-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "prod": "cross-env NODE_ENV=production nodemon index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
+    "nodemon": "^3.1.4"
+  }
+}
