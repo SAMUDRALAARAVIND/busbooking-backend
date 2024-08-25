@@ -16,13 +16,13 @@ const tripSchema = Schema({
   boardingPoints: [
     {
       stopId: { type: Number, required: true },
-      arrivalTime: { type: Number, required: true }, //use epoc time
+      arrivalTime: { type: Number, required: true }, //use epoc times
     },
   ],
   droppingPoints: [
     {
       stopId: { type: Number, required: true },
-      arrivalTime: { type: Number, required: true }, //use epoc time
+      arrivalTime: { type: Number, required: true }, //use epoc times
     },
   ],
   prices: [
