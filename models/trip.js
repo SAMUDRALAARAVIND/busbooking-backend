@@ -1,41 +1,52 @@
 import { Schema, model } from "mongoose";
 
-const tripSchema = Schema({
-  source: {
-    ref: "City",
-    type: mongoose.Schema.type.ObjectId,
-  },
+const tripSchema = new mongoose.Schema({
   busId: {
-    ref: "Bus",
-    type: mongoose.Schema.type.ObjectId,
+    type: mongoose.Schema.ObjectId,
+    ref: "busModel",
+    required: [true, "BusId is required"],
   },
-  destination: {
-    ref: "City",
-    type: mongoose.Schema.type.ObjectId,
+  route: {
+    startLocation: {
+      type: String,
+      required: [true, "Start Location is required"],
+    },
+    endLocation: {
+      type: String,
+      required: [true, "End Location is required"],
+    },
+    stops: [
+      {
+        title: {
+          type: String,
+          required: [true, "Stop title is required"],
+        },
+        arrivalTime: {
+          type: String,
+          required: [true, "Arrival Time is required"],
+        },
+        departureTime: {
+          type: String,
+          required: [true, "Departure Time is required"],
+        },
+      },
+    ],
   },
-  boardingPoints: [
-    {
-      stopId: { type: Number, required: true },
-      arrivalTime: { type: Number, required: true }, //use epoc times
-    },
-  ],
-  droppingPoints: [
-    {
-      stopId: { type: Number, required: true },
-      arrivalTime: { type: Number, required: true }, //use epoc times
-    },
-  ],
-  prices: [
-    {
-      seatNumber: { type: String, required: true },
-      price: { type: Number, required: true },
-    },
-  ],
-  startTime: { type: Number, required: true },
-  endTime: { type: Number, required: true },
-  driverDetails: {
-    contactNumber: { type: String, required: true },
-    name: { type: String, required: true },
+  arrivalTime: {
+    type: String,
+    required: [true, "Arrival Time is required"],
+  },
+  departureTime: {
+    type: String,
+    required: [true, "Departure Time is required"],
+  },
+  driverName: {
+    type: String,
+    required: [true, "Driver name is required"],
+  },
+  status: {
+    type: String,
+    required: [true, "Status is required"], // Status of the trip (scheduled, in-progress, completed, canceled)
   },
 });
 
