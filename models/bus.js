@@ -25,7 +25,7 @@ const Seat = {
 };
 
 // Bus Schema
-const busSchema = new mongoose.Schema({
+const busSchema = new Schema({
   busPartner: {
     type: String,
     required: [true, "Bus name is required"],

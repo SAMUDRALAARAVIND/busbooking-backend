@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const tripSchema = new mongoose.Schema({
+const tripSchema = new Schema({
   busId: {
     type: mongoose.Schema.ObjectId,
     ref: "busModel",

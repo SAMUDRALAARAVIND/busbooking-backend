@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const bookingSchema = new mongoose.Schema({
+const bookingSchema = new Schema({
   tripId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "tripModel",
@@ -40,6 +40,6 @@ const bookingSchema = new mongoose.Schema({
   }, // Status of the booking (e.g., confirmed, canceled)
 });
 
-const bookingModel = model("Booking" , bookingSchema)
+const bookingModel = model("Booking", bookingSchema);
 
 export default bookingModel;
