@@ -12,10 +12,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "mongoose": "^8.5.3",
     "nodemon": "^3.1.4"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
