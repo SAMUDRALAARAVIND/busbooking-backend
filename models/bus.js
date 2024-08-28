@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+// import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
 const busTypes = {
   AC: "AC",
@@ -50,6 +51,7 @@ const busSchema = new mongoose.Schema({
   },
 });
 
-const busModel = model("Bus", busSchema);
+const busModel = mongoose.model("Bus", busSchema);
 
-export default busModel;
+// export default busModel;
+module.exports = busModel;

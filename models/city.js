@@ -1,4 +1,6 @@
-import { Schema, model } from "mongoose";
+// import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const stopPoint = {
   stopId: {
@@ -43,6 +45,6 @@ const citySchema = new Schema({
   },
 });
 
-const cityModel = model("City", citySchema);
+const cityModel = mongoose.model("City", citySchema);
 
-export default cityModel;
+module.exports =  cityModel;

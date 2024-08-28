@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+// import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
 const tripSchema = new mongoose.Schema({
   busId: {
@@ -50,6 +51,6 @@ const tripSchema = new mongoose.Schema({
   },
 });
 
-const tripModel = model("Trip", tripSchema);
+const tripModel = mongoose.model("Trip", tripSchema);
 
-export default tripModel;
+module.exports = tripModel;

@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+// import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
   tripId: {
@@ -40,6 +41,7 @@ const bookingSchema = new mongoose.Schema({
   }, // Status of the booking (e.g., confirmed, canceled)
 });
 
-const bookingModel = model("Booking" , bookingSchema)
+const bookingModel = mongoose.model("Booking" , bookingSchema)
 
-export default bookingModel;
+// export default bookingModel;
+module.exports = bookingModel;

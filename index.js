@@ -1,35 +1,29 @@
-import express from "express";
+const express = require("express");
+const mongoose = require("mongoose");
+// const cityModel = require("./models/city");
+const tripRouter = require("./routes/tripRoute");
+
+require("dotenv").config();
+
+// constants
+const PORT = process.env.PORT;
+const MONGO_URI = process.env.MONGO_URI;
+
+// connecting mongodb
+mongoose
+  .connect(MONGO_URI)
+  .then(() => console.log("MongoDB Connected Successfully"))
+  .catch((err) => {
+    console.log("Failed to connect to mongoDB", err);
+  });
+
 const app = express();
-import "dotenv/config";
 
-//==========
-//body parser
-//==========
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // body-parser
 
-//==========
-//default routes
-//==========
+// routes middlewares
+app.use("/trip", tripRouter);
 
-app.get("/", (req, res, next) => {
-  res.send("Hello from backend");
+app.listen(PORT, () => {
+  console.log(`App is running at ${PORT}`);
 });
-
-// ==============
-// creating server
-// ==============
-const PORT = process.env.PORT || 8000;
-const MODE = process.env.NODE_ENV || "production";
-
-const start = async () => {
-  try {
-    app.listen(PORT, () => {
-      console.log("Listening on port", PORT, "in", MODE, "mode");
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
