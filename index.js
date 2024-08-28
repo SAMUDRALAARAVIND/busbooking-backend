@@ -1,6 +1,9 @@
-import express from "express";
+const express = require("express");
+const dotenv = require("dotenv");
 const app = express();
-import "dotenv/config";
+
+// parsing env variable
+dotenv.config();
 
 //==========
 //body parser
@@ -9,16 +12,27 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //==========
-//default routes
+//bus routes
+//city routes
+//trip routes
+//globalErrorHndlr
 //==========
+const busRouter = require("./routes/busRouter");
+const cityRouter = require("./routes/cityRouter");
+const tripRouter = require("./routes/tripRouter");
+const globalErrorHandler = require("./midlewares/globalErrorHandler.js");
 
-app.get("/", (req, res, next) => {
-  res.send("Hello from backend");
-});
+app.use("/api/v1", busRouter);
+app.use("/api/v1", cityRouter);
+app.use("/api/v1", tripRouter);
+
+// handling error globaly
+app.use(globalErrorHandler);
 
 // ==============
-// creating server
+// creating server`
 // ==============
+const { connect } = require("mongoose");
 const PORT = process.env.PORT || 8000;
 const MODE = process.env.NODE_ENV || "production";
 

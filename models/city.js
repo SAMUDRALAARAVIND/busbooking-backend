@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const stopPoint = {
   stopId: {
@@ -45,4 +45,4 @@ const citySchema = new Schema({
 
 const cityModel = model("City", citySchema);
 
-export default cityModel;
+module.exports = cityModel;

@@ -1,8 +1,8 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const tripSchema = new Schema({
   busId: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "busModel",
     required: [true, "BusId is required"],
   },
@@ -17,27 +17,31 @@ const tripSchema = new Schema({
     },
     stops: [
       {
+        stopId: {
+          type: Number,
+          required: [true, "StopId is required"],
+        },
         title: {
           type: String,
           required: [true, "Stop title is required"],
         },
         arrivalTime: {
-          type: String,
+          type: Number,
           required: [true, "Arrival Time is required"],
         },
         departureTime: {
-          type: String,
+          type: Number,
           required: [true, "Departure Time is required"],
         },
       },
     ],
   },
   arrivalTime: {
-    type: String,
+    type: Number,
     required: [true, "Arrival Time is required"],
   },
   departureTime: {
-    type: String,
+    type: Number,
     required: [true, "Departure Time is required"],
   },
   driverName: {
@@ -50,6 +54,12 @@ const tripSchema = new Schema({
   },
 });
 
+tripSchema.index({
+  "route.startLocation": 1,
+  "route.endLocation": 1,
+  arrivalTime: 1,
+});
+
 const tripModel = model("Trip", tripSchema);
 
-export default tripModel;
+module.exports = tripModel;

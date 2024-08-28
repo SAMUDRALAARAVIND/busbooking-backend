@@ -1,18 +1,18 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const bookingSchema = new Schema({
   tripId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "tripModel",
     required: true,
   },
   busId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "busModel",
     required: true,
   },
   user: {
-    type: mongoose.Schema.ObjectId,
+    type: Schema.ObjectId,
     ref: "userModel",
     required: [true, "User id is required"],
   },
@@ -42,4 +42,4 @@ const bookingSchema = new Schema({
 
 const bookingModel = model("Booking", bookingSchema);
 
-export default bookingModel;
+module.exports = bookingModel;
