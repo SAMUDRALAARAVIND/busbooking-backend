@@ -37,7 +37,7 @@ const citySchema = new Schema({
     type: Number,
   },
   stopPoints: [stopPoint],
-  pinCode: {
+  pincode: {
     type: Number,
     required: true,
   },
@@ -45,4 +45,4 @@ const citySchema = new Schema({
 
 const cityModel = model("City", citySchema);
 
-export default cityModel;
+module.exports = cityModel;

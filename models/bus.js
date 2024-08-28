@@ -25,7 +25,7 @@ const Seat = {
 };
 
 // Bus Schema
-const busSchema = new mongoose.Schema({
+const busSchema = new Schema({
   busPartner: {
     type: String,
     required: [true, "Bus name is required"],
@@ -52,4 +52,4 @@ const busSchema = new mongoose.Schema({
 
 const busModel = model("Bus", busSchema);
 
-export default busModel;
+module.exports = busModel;
