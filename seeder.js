@@ -37,65 +37,81 @@ const importData = async () => {
     const cityIds = createdCity.map((city) => city._id);
     const busIds = createdBuses.map((bus) => bus._id);
 
-    let cityIdCount = 0;
-    let busidCount = 0;
-    const sampleTrip = TripData.map((trip) => {
-      let boardingPoints = [];
-      let droppingPoints = [];
-      trip.droppingPoints.forEach((p, idx) => {
-        const obj = {
-          ...p,
-          stopId: createdCity[cityIdCount + 1].stopPoints[idx].stopId,
-        };
-        droppingPoints.push(obj);
-      });
-      trip.boardingPoints.forEach((p, idx) => {
-        const obj = {
-          ...p,
-          stopId: createdCity[cityIdCount].stopPoints[idx].stopId,
-        };
-        boardingPoints.push(obj);
-      });
-
-      let price = 500;
-      let prices = [];
-      createdBuses[busidCount].layout?.upperDeck?.forEach((seat) => {
-        prices.push({
-          seatNumber: seat.seatNumber,
-          price,
-        });
-        price += 100;
-      });
-      createdBuses[busidCount].layout?.lowerDeck?.forEach((seat) => {
-        prices.push({
-          seatNumber: seat.seatNumber,
-          price,
-        });
-        price += 100;
-      });
-
-      const obj = {
-        ...trip,
-        source: cityIds[cityIdCount],
-        destination: cityIds[cityIdCount + 1],
-        busId: busIds[busidCount],
-        boardingPoints,
-        droppingPoints,
-        prices,
-      };
-      cityIdCount++;
-      busidCount++;
-      if (cityIdCount === cityIds.length - 1) cityIdCount = 0;
-      if (busidCount === busIds.length) busidCount = 0;
-      return obj;
-    });
-    const createdTrip = await Trip.insertMany(sampleTrip);
+    const sampleTrip = getFormatedTripData(
+      TripData,
+      createdBuses,
+      createdCity,
+      cityIds,
+      busIds
+    );
+    await Trip.insertMany(sampleTrip);
     console.log("Data Inserted".green.inverse);
     process.exit();
   } catch (error) {
     console.error(`error : ${error}`.red.inverse);
     process.exit(1);
   }
+};
+
+const getFormatedTripData = (
+  TripData,
+  createdBuses,
+  createdCity,
+  cityIds,
+  busIds
+) => {
+  let cityIdCount = 0;
+  let busidCount = 0;
+  return TripData.map((trip) => {
+    let boardingPoints = [];
+    let droppingPoints = [];
+    trip.droppingPoints.forEach((p, idx) => {
+      const obj = {
+        ...p,
+        stopId: createdCity[cityIdCount + 1].stopPoints[idx].stopId,
+      };
+      droppingPoints.push(obj);
+    });
+    trip.boardingPoints.forEach((p, idx) => {
+      const obj = {
+        ...p,
+        stopId: createdCity[cityIdCount].stopPoints[idx].stopId,
+      };
+      boardingPoints.push(obj);
+    });
+
+    let price = 500;
+    let prices = [];
+    createdBuses[busidCount].layout?.upperDeck?.forEach((seat) => {
+      prices.push({
+        seatNumber: seat.seatNumber,
+        price,
+      });
+      price += 100;
+    });
+    createdBuses[busidCount].layout?.lowerDeck?.forEach((seat) => {
+      prices.push({
+        seatNumber: seat.seatNumber,
+        price,
+      });
+      price += 100;
+    });
+
+    const obj = {
+      ...trip,
+      source: cityIds[cityIdCount],
+      destination: cityIds[cityIdCount + 1],
+      busId: busIds[busidCount],
+      boardingPoints,
+      droppingPoints,
+      prices,
+    };
+    cityIdCount++;
+    busidCount++;
+    if (cityIdCount === cityIds.length - 1) cityIdCount = 0;
+    if (busidCount === busIds.length) busidCount = 0;
+    return obj;
+  });
 };
 
 const deleteData = async () => {
