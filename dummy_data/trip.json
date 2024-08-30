@@ -1,279 +1,475 @@
 [
-    {
-      "source": "66d04e395e12db0e0a7af193",
-      "busId": "66d050415e12db0e0a7af1a1",
-      "destination": "66d04e395e12db0e0a7af194",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1000 },
-        { "stopId": 2, "arrivalTime": 1030 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1100 },
-        { "stopId": 4, "arrivalTime": 1130 }
-      ],
-      "prices": [
-        { "seatNumber": "A1", "price": 500 },
-        { "seatNumber": "A2", "price": 500 }
-      ],
-      "startTime": 1600,
-      "endTime": 1800,
-      "driverDetails": {
-        "contactNumber": "9876543210",
-        "name": "Ravi Kumar"
+  {
+    "source": "66d04e395e12db0e0a7af193",
+    "busId": "66d050415e12db0e0a7af1a1",
+    "destination": "66d04e395e12db0e0a7af194",
+    "boardingPoints": [
+      {
+        "stopId": 1,
+        "arrivalTime": 800,
+        "directions": "North",
+        "title": "Boarding Point A",
+        "lat": 26.9124,
+        "lng": 75.7873
       }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af194",
-      "busId": "66d050415e12db0e0a7af1a2",
-      "destination": "66d04e395e12db0e0a7af195",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1200 },
-        { "stopId": 2, "arrivalTime": 1230 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1300 },
-        { "stopId": 4, "arrivalTime": 1330 }
-      ],
-      "prices": [
-        { "seatNumber": "B1", "price": 600 },
-        { "seatNumber": "B2", "price": 600 }
-      ],
-      "startTime": 1400,
-      "endTime": 1600,
-      "driverDetails": {
-        "contactNumber": "9123456789",
-        "name": "Sunil Sharma"
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 1,
+        "arrivalTime": 1200,
+        "directions": "South",
+        "title": "Dropping Point B",
+        "lat": 26.9124,
+        "lng": 75.7873
       }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af195",
-      "busId": "66d050415e12db0e0a7af1a3",
-      "destination": "66d04e395e12db0e0a7af196",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1300 },
-        { "stopId": 2, "arrivalTime": 1330 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1400 },
-        { "stopId": 4, "arrivalTime": 1430 }
-      ],
-      "prices": [
-        { "seatNumber": "C1", "price": 700 },
-        { "seatNumber": "C2", "price": 700 }
-      ],
-      "startTime": 1500,
-      "endTime": 1700,
-      "driverDetails": {
-        "contactNumber": "9345678901",
-        "name": "Manoj Patel"
+    ],
+    "prices": [
+      {
+        "seatNumber": "1A",
+        "price": 500
+      },
+      {
+        "seatNumber": "1B",
+        "price": 550
       }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af196",
-      "busId": "66d050415e12db0e0a7af1a4",
-      "destination": "66d04e395e12db0e0a7af193",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1400 },
-        { "stopId": 2, "arrivalTime": 1430 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1500 },
-        { "stopId": 4, "arrivalTime": 1530 }
-      ],
-      "prices": [
-        { "seatNumber": "D1", "price": 800 },
-        { "seatNumber": "D2", "price": 800 }
-      ],
-      "startTime": 1600,
-      "endTime": 1800,
-      "driverDetails": {
-        "contactNumber": "9654321098",
-        "name": "Arun Kumar"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af193",
-      "busId": "66d050415e12db0e0a7af1a5",
-      "destination": "66d04e395e12db0e0a7af194",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1100 },
-        { "stopId": 2, "arrivalTime": 1130 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1200 },
-        { "stopId": 4, "arrivalTime": 1230 }
-      ],
-      "prices": [
-        { "seatNumber": "E1", "price": 550 },
-        { "seatNumber": "E2", "price": 550 }
-      ],
-      "startTime": 1300,
-      "endTime": 1500,
-      "driverDetails": {
-        "contactNumber": "8765432109",
-        "name": "Vikram Singh"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af194",
-      "busId": "66d050415e12db0e0a7af1a1",
-      "destination": "66d04e395e12db0e0a7af195",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1200 },
-        { "stopId": 2, "arrivalTime": 1230 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1300 },
-        { "stopId": 4, "arrivalTime": 1330 }
-      ],
-      "prices": [
-        { "seatNumber": "F1", "price": 600 },
-        { "seatNumber": "F2", "price": 600 }
-      ],
-      "startTime": 1400,
-      "endTime": 1600,
-      "driverDetails": {
-        "contactNumber": "9876543210",
-        "name": "Rajesh Mehta"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af195",
-      "busId": "66d050415e12db0e0a7af1a2",
-      "destination": "66d04e395e12db0e0a7af196",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1300 },
-        { "stopId": 2, "arrivalTime": 1330 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1400 },
-        { "stopId": 4, "arrivalTime": 1430 }
-      ],
-      "prices": [
-        { "seatNumber": "G1", "price": 650 },
-        { "seatNumber": "G2", "price": 650 }
-      ],
-      "startTime": 1500,
-      "endTime": 1700,
-      "driverDetails": {
-        "contactNumber": "9123456789",
-        "name": "Suresh Patel"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af196",
-      "busId": "66d050415e12db0e0a7af1a3",
-      "destination": "66d04e395e12db0e0a7af193",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1400 },
-        { "stopId": 2, "arrivalTime": 1430 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1500 },
-        { "stopId": 4, "arrivalTime": 1530 }
-      ],
-      "prices": [
-        { "seatNumber": "H1", "price": 700 },
-        { "seatNumber": "H2", "price": 700 }
-      ],
-      "startTime": 1600,
-      "endTime": 1800,
-      "driverDetails": {
-        "contactNumber": "9345678901",
-        "name": "Amit Sharma"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af193",
-      "busId": "66d050415e12db0e0a7af1a4",
-      "destination": "66d04e395e12db0e0a7af194",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1100 },
-        { "stopId": 2, "arrivalTime": 1130 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1200 },
-        { "stopId": 4, "arrivalTime": 1230 }
-      ],
-      "prices": [
-        { "seatNumber": "I1", "price": 750 },
-        { "seatNumber": "I2", "price": 750 }
-      ],
-      "startTime": 1300,
-      "endTime": 1500,
-      "driverDetails": {
-        "contactNumber": "8765432109",
-        "name": "Pankaj Yadav"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af194",
-      "busId": "66d050415e12db0e0a7af1a5",
-      "destination": "66d04e395e12db0e0a7af195",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1200 },
-        { "stopId": 2, "arrivalTime": 1230 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1300 },
-        { "stopId": 4, "arrivalTime": 1330 }
-      ],
-      "prices": [
-        { "seatNumber": "J1", "price": 650 },
-        { "seatNumber": "J2", "price": 650 }
-      ],
-      "startTime": 1400,
-      "endTime": 1600,
-      "driverDetails": {
-        "contactNumber": "9654321098",
-        "name": "Kumar Singh"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af195",
-      "busId": "66d050415e12db0e0a7af1a1",
-      "destination": "66d04e395e12db0e0a7af196",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1300 },
-        { "stopId": 2, "arrivalTime": 1330 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1400 },
-        { "stopId": 4, "arrivalTime": 1430 }
-      ],
-      "prices": [
-        { "seatNumber": "K1", "price": 700 },
-        { "seatNumber": "K2", "price": 700 }
-      ],
-      "startTime": 1500,
-      "endTime": 1700,
-      "driverDetails": {
-        "contactNumber": "9345678901",
-        "name": "Ravi Singh"
-      }
-    },
-    {
-      "source": "66d04e395e12db0e0a7af196",
-      "busId": "66d050415e12db0e0a7af1a2",
-      "destination": "66d04e395e12db0e0a7af193",
-      "boardingPoints": [
-        { "stopId": 1, "arrivalTime": 1400 },
-        { "stopId": 2, "arrivalTime": 1430 }
-      ],
-      "droppingPoints": [
-        { "stopId": 3, "arrivalTime": 1500 },
-        { "stopId": 4, "arrivalTime": 1530 }
-      ],
-      "prices": [
-        { "seatNumber": "L1", "price": 750 },
-        { "seatNumber": "L2", "price": 750 }
-      ],
-      "startTime": 1600,
-      "endTime": 1800,
-      "driverDetails": {
-        "contactNumber": "9876543210",
-        "name": "Ajay Sharma"
-      }
+    ],
+    "startTime": 1633058400000,
+    "endTime": 1633065600000,
+    "driverDetails": {
+      "contactNumber": "1234567890",
+      "name": "John Doe"
     }
-  ]
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af194",
+    "busId": "66d050415e12db0e0a7af1a2",
+    "destination": "66d04e395e12db0e0a7af195",
+    "boardingPoints": [
+      {
+        "stopId": 2,
+        "arrivalTime": 830,
+        "directions": "East",
+        "title": "Boarding Point C",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 2,
+        "arrivalTime": 1230,
+        "directions": "West",
+        "title": "Dropping Point D",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "2A",
+        "price": 600
+      },
+      {
+        "seatNumber": "2B",
+        "price": 650
+      }
+    ],
+    "startTime": 1633144800000,
+    "endTime": 1633152000000,
+    "driverDetails": {
+      "contactNumber": "0987654321",
+      "name": "Jane Smith"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af195",
+    "busId": "66d050415e12db0e0a7af1a3",
+    "destination": "66d04e395e12db0e0a7af196",
+    "boardingPoints": [
+      {
+        "stopId": 3,
+        "arrivalTime": 900,
+        "directions": "North",
+        "title": "Boarding Point E",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 3,
+        "arrivalTime": 1300,
+        "directions": "South",
+        "title": "Dropping Point F",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "3A",
+        "price": 700
+      },
+      {
+        "seatNumber": "3B",
+        "price": 750
+      }
+    ],
+    "startTime": 1633231200000,
+    "endTime": 1633238400000,
+    "driverDetails": {
+      "contactNumber": "1122334455",
+      "name": "Mike Johnson"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af196",
+    "busId": "66d050415e12db0e0a7af1a4",
+    "destination": "66d04e395e12db0e0a7af193",
+    "boardingPoints": [
+      {
+        "stopId": 4,
+        "arrivalTime": 1000,
+        "directions": "West",
+        "title": "Boarding Point G",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 4,
+        "arrivalTime": 1400,
+        "directions": "East",
+        "title": "Dropping Point H",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "4A",
+        "price": 800
+      },
+      {
+        "seatNumber": "4B",
+        "price": 850
+      }
+    ],
+    "startTime": 1633317600000,
+    "endTime": 1633324800000,
+    "driverDetails": {
+      "contactNumber": "2233445566",
+      "name": "Sarah Lee"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af194",
+    "busId": "66d050415e12db0e0a7af1a5",
+    "destination": "66d04e395e12db0e0a7af195",
+    "boardingPoints": [
+      {
+        "stopId": 5,
+        "arrivalTime": 1030,
+        "directions": "North",
+        "title": "Boarding Point I",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 5,
+        "arrivalTime": 1430,
+        "directions": "South",
+        "title": "Dropping Point J",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "5A",
+        "price": 550
+      },
+      {
+        "seatNumber": "5B",
+        "price": 600
+      }
+    ],
+    "startTime": 1633404000000,
+    "endTime": 1633411200000,
+    "driverDetails": {
+      "contactNumber": "3344556677",
+      "name": "Emily Davis"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af195",
+    "busId": "66d050415e12db0e0a7af1a1",
+    "destination": "66d04e395e12db0e0a7af196",
+    "boardingPoints": [
+      {
+        "stopId": 6,
+        "arrivalTime": 1100,
+        "directions": "East",
+        "title": "Boarding Point K",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 6,
+        "arrivalTime": 1500,
+        "directions": "West",
+        "title": "Dropping Point L",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "6A",
+        "price": 650
+      },
+      {
+        "seatNumber": "6B",
+        "price": 700
+      }
+    ],
+    "startTime": 1633490400000,
+    "endTime": 1633497600000,
+    "driverDetails": {
+      "contactNumber": "4455667788",
+      "name": "Daniel Brown"
+    }
+  },
+
   
+  {
+    "source": "66d04e395e12db0e0a7af196",
+    "busId": "66d050415e12db0e0a7af1a2",
+    "destination": "66d04e395e12db0e0a7af193",
+    "boardingPoints": [
+      {
+        "stopId": 7,
+        "arrivalTime": 1130,
+        "directions": "North",
+        "title": "Boarding Point M",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 7,
+        "arrivalTime": 1530,
+        "directions": "South",
+        "title": "Dropping Point N",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "7A",
+        "price": 700
+      },
+      {
+        "seatNumber": "7B",
+        "price": 750
+      }
+    ],
+    "startTime": 1633576800000,
+    "endTime": 1633584000000,
+    "driverDetails": {
+      "contactNumber": "5566778899",
+      "name": "Olivia Wilson"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af193",
+    "busId": "66d050415e12db0e0a7af1a3",
+    "destination": "66d04e395e12db0e0a7af194",
+    "boardingPoints": [
+      {
+        "stopId": 8,
+        "arrivalTime": 1200,
+        "directions": "South",
+        "title": "Boarding Point O",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 8,
+        "arrivalTime": 1600,
+        "directions": "North",
+        "title": "Dropping Point P",
+        "lat": 30.7333,
+        "lng": 76.7794
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "8A",
+        "price": 800
+      },
+      {
+        "seatNumber": "8B",
+        "price": 850
+      }
+    ],
+    "startTime": 1633663200000,
+    "endTime": 1633670400000,
+    "driverDetails": {
+      "contactNumber": "6677889900",
+      "name": "Emma Brown"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af194",
+    "busId": "66d050415e12db0e0a7af1a4",
+    "destination": "66d04e395e12db0e0a7af195",
+    "boardingPoints": [
+      {
+        "stopId": 9,
+        "arrivalTime": 1300,
+        "directions": "East",
+        "title": "Boarding Point Q",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 9,
+        "arrivalTime": 1630,
+        "directions": "West",
+        "title": "Dropping Point R",
+        "lat": 20.2961,
+        "lng": 85.8245
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "9A",
+        "price": 550
+      },
+      {
+        "seatNumber": "9B",
+        "price": 600
+      }
+    ],
+    "startTime": 1633749600000,
+    "endTime": 1633756800000,
+    "driverDetails": {
+      "contactNumber": "7788990011",
+      "name": "Sophia Davis"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af195",
+    "busId": "66d050415e12db0e0a7af1a5",
+    "destination": "66d04e395e12db0e0a7af196",
+    "boardingPoints": [
+      {
+        "stopId": 10,
+        "arrivalTime": 1400,
+        "directions": "North",
+        "title": "Boarding Point S",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 10,
+        "arrivalTime": 1700,
+        "directions": "South",
+        "title": "Dropping Point T",
+        "lat": 25.3176,
+        "lng": 82.9739
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "10A",
+        "price": 700
+      },
+      {
+        "seatNumber": "10B",
+        "price": 750
+      }
+    ],
+    "startTime": 1633836000000,
+    "endTime": 1633843200000,
+    "driverDetails": {
+      "contactNumber": "8899001122",
+      "name": "Liam Martinez"
+    }
+  },
+
+
+  {
+    "source": "66d04e395e12db0e0a7af196",
+    "busId": "66d050415e12db0e0a7af1a1",
+    "destination": "66d04e395e12db0e0a7af193",
+    "boardingPoints": [
+      {
+        "stopId": 11,
+        "arrivalTime": 1500,
+        "directions": "South",
+        "title": "Boarding Point U",
+        "lat": 26.9124,
+        "lng": 75.7873
+      }
+    ],
+    "droppingPoints": [
+      {
+        "stopId": 11,
+        "arrivalTime": 1800,
+        "directions": "North",
+        "title": "Dropping Point V",
+        "lat": 26.9124,
+        "lng": 75.7873
+      }
+    ],
+    "prices": [
+      {
+        "seatNumber": "11A",
+        "price": 800
+      },
+      {
+        "seatNumber": "11B",
+        "price": 850
+      }
+    ],
+    "startTime": 1633922400000,
+    "endTime": 1633929600000,
+    "driverDetails": {
+      "contactNumber": "9900112233",
+      "name": "Ava Thompson"
+    }
+  }
+
+  
+]
