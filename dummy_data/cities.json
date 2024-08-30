@@ -1,0 +1,279 @@
+[
+    {
+      "name": "Mumbai",
+      "state": "Maharashtra",
+      "lat": 19.0760,
+      "lng": 72.8777,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Mumbai CST",
+          "directions": "Near CST Station",
+          "lat": 18.9400,
+          "lng": 72.8347
+        },
+        {
+          "stopId": 2,
+          "title": "Bandra",
+          "directions": "Near Bandra Station",
+          "lat": 19.0596,
+          "lng": 72.8304
+        }
+      ],
+      "pincode": 400001
+    },
+    {
+      "name": "Delhi",
+      "state": "Delhi",
+      "lat": 28.6139,
+      "lng": 77.2090,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Connaught Place",
+          "directions": "Central Delhi",
+          "lat": 28.6270,
+          "lng": 77.2088
+        },
+        {
+          "stopId": 2,
+          "title": "Hauz Khas",
+          "directions": "Near Hauz Khas Village",
+          "lat": 28.5535,
+          "lng": 77.2211
+        }
+      ],
+      "pincode": 110001
+    },
+    {
+      "name": "Bengaluru",
+      "state": "Karnataka",
+      "lat": 12.9716,
+      "lng": 77.5946,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Majestic",
+          "directions": "Near Bangalore Railway Station",
+          "lat": 12.9704,
+          "lng": 77.5820
+        },
+        {
+          "stopId": 2,
+          "title": "Whitefield",
+          "directions": "Near Whitefield Railway Station",
+          "lat": 12.9722,
+          "lng": 77.7491
+        }
+      ],
+      "pincode": 560001
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "lat": 13.0827,
+      "lng": 80.2707,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Egmore",
+          "directions": "Near Egmore Railway Station",
+          "lat": 13.0806,
+          "lng": 80.2722
+        },
+        {
+          "stopId": 2,
+          "title": "T Nagar",
+          "directions": "Near T Nagar Shopping Area",
+          "lat": 13.0466,
+          "lng": 80.2364
+        }
+      ],
+      "pincode": 600001
+    },
+    {
+      "name": "Kolkata",
+      "state": "West Bengal",
+      "lat": 22.5726,
+      "lng": 88.3639,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Howrah",
+          "directions": "Near Howrah Railway Station",
+          "lat": 22.5856,
+          "lng": 88.3639
+        },
+        {
+          "stopId": 2,
+          "title": "Park Street",
+          "directions": "Near Park Street",
+          "lat": 22.5568,
+          "lng": 88.3547
+        }
+      ],
+      "pincode": 700001
+    },
+    {
+      "name": "Hyderabad",
+      "state": "Telangana",
+      "lat": 17.3850,
+      "lng": 78.4867,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Secunderabad",
+          "directions": "Near Secunderabad Railway Station",
+          "lat": 17.4306,
+          "lng": 78.4986
+        },
+        {
+          "stopId": 2,
+          "title": "Banjara Hills",
+          "directions": "Near Banjara Hills",
+          "lat": 17.4170,
+          "lng": 78.4165
+        }
+      ],
+      "pincode": 500001
+    },
+    {
+      "name": "Pune",
+      "state": "Maharashtra",
+      "lat": 18.5204,
+      "lng": 73.8567,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Pune Station",
+          "directions": "Near Pune Railway Station",
+          "lat": 18.5220,
+          "lng": 73.8551
+        },
+        {
+          "stopId": 2,
+          "title": "Kothrud",
+          "directions": "Near Kothrud",
+          "lat": 18.5094,
+          "lng": 73.8258
+        }
+      ],
+      "pincode": 411001
+    },
+    {
+      "name": "Ahmedabad",
+      "state": "Gujarat",
+      "lat": 23.0225,
+      "lng": 72.5714,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Kalupur",
+          "directions": "Near Kalupur Railway Station",
+          "lat": 23.0280,
+          "lng": 72.5728
+        },
+        {
+          "stopId": 2,
+          "title": "Vastrapur",
+          "directions": "Near Vastrapur Lake",
+          "lat": 23.0176,
+          "lng": 72.5325
+        }
+      ],
+      "pincode": 380001
+    },
+    {
+      "name": "Jaipur",
+      "state": "Rajasthan",
+      "lat": 26.9124,
+      "lng": 75.7873,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Raja Park",
+          "directions": "Near Raja Park",
+          "lat": 26.9230,
+          "lng": 75.8037
+        },
+        {
+          "stopId": 2,
+          "title": "Sindhi Camp",
+          "directions": "Near Sindhi Camp",
+          "lat": 26.9154,
+          "lng": 75.8114
+        }
+      ],
+      "pincode": 302001
+    },
+    {
+      "name": "Chandigarh",
+      "state": "Chandigarh",
+      "lat": 30.7333,
+      "lng": 76.7794,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Sector 17",
+          "directions": "Near Sector 17 Plaza",
+          "lat": 30.7341,
+          "lng": 76.7806
+        },
+        {
+          "stopId": 2,
+          "title": "Sector 43",
+          "directions": "Near Sector 43 Bus Stand",
+          "lat": 30.7350,
+          "lng": 76.7880
+        }
+      ],
+      "pincode": 160001
+    },
+    {
+      "name": "Bhubaneswar",
+      "state": "Odisha",
+      "lat": 20.2961,
+      "lng": 85.8245,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Railway Station",
+          "directions": "Near Bhubaneswar Railway Station",
+          "lat": 20.2936,
+          "lng": 85.8320
+        },
+        {
+          "stopId": 2,
+          "title": "Unit 4",
+          "directions": "Near Unit 4 Market",
+          "lat": 20.3030,
+          "lng": 85.8230
+        }
+      ],
+      "pincode": 751001
+    },
+    {
+      "name": "Varanasi",
+      "state": "Uttar Pradesh",
+      "lat": 25.3176,
+      "lng": 82.9739,
+      "stopPoints": [
+        {
+          "stopId": 1,
+          "title": "Kashi Vishwanath Temple",
+          "directions": "Near Kashi Vishwanath Temple",
+          "lat": 25.3164,
+          "lng": 82.9739
+        },
+        {
+          "stopId": 2,
+          "title": "Sarnath",
+          "directions": "Near Sarnath",
+          "lat": 25.3814,
+          "lng": 82.7906
+        }
+      ],
+      "pincode": 221001
+    }
+  ]
+  

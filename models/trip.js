@@ -3,6 +3,10 @@ const { Schema, model } = require("mongoose");
 const StopPoint = {
   stopId: { type: Number, required: true },
   arrivalTime: { type: Number, required: true },
+  directions: { type: String, required: true },
+  title: { type: String, required: true },
+  lat: { type: Number, required: true },
+  lng: { type: Number, required: true }
 };
 
 const tripSchema = new Schema({

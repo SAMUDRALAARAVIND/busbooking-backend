@@ -1,0 +1,355 @@
+[
+    {
+      "busPartner": "Kolkata Travels",
+      "busType": "AC",
+      "amenities": ["WIFI", "CHARGING_PORT", "WATER"],
+      "busNumber": "WB01AB1234",
+      "layout": {
+        "upperDeck": [
+          {
+            "seatNumber": "U1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "U2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          }
+        ],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Delhi Express",
+      "busType": "SLEEPER",
+      "amenities": ["LIVE_TRACKING", "EMERGENCY_EXIT"],
+      "busNumber": "DL02CD5678",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SLEEPER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SLEEPER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Mumbai Bus Co.",
+      "busType": "SEATER",
+      "amenities": ["WIFI", "CHARGING_PORT"],
+      "busNumber": "MH03EF9101",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Bengaluru Buses",
+      "busType": "NON_AC",
+      "amenities": ["WATER"],
+      "busNumber": "KA04GH2345",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Chennai Transport",
+      "busType": "AC",
+      "amenities": ["WIFI", "CHARGING_PORT", "LIVE_TRACKING"],
+      "busNumber": "TN05IJ3456",
+      "layout": {
+        "upperDeck": [
+          {
+            "seatNumber": "U1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Hyderabad Riders",
+      "busType": "SLEEPER",
+      "amenities": ["EMERGENCY_EXIT"],
+      "busNumber": "TS06JK4567",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SLEEPER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Pune Travels",
+      "busType": "AC",
+      "amenities": ["WIFI", "CHARGING_PORT", "WATER"],
+      "busNumber": "MH07KL7890",
+      "layout": {
+        "upperDeck": [
+          {
+            "seatNumber": "U1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Ahmedabad Bus Service",
+      "busType": "SEATER",
+      "amenities": ["LIVE_TRACKING"],
+      "busNumber": "GJ08LM9012",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Jaipur Journeys",
+      "busType": "NON_AC",
+      "amenities": ["WATER"],
+      "busNumber": "RJ09MN1234",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Chandigarh Express",
+      "busType": "SLEEPER",
+      "amenities": ["LIVE_TRACKING", "WATER"],
+      "busNumber": "CH10OP2345",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SLEEPER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Bhubaneswar Buses",
+      "busType": "AC",
+      "amenities": ["WIFI", "CHARGING_PORT"],
+      "busNumber": "OR11QR3456",
+      "layout": {
+        "upperDeck": [
+          {
+            "seatNumber": "U1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SLEEPER"
+          }
+        ]
+      }
+    },
+    {
+      "busPartner": "Varanasi Travels",
+      "busType": "SEATER",
+      "amenities": ["CHARGING_PORT", "WATER"],
+      "busNumber": "UP12RS6789",
+      "layout": {
+        "upperDeck": [],
+        "lowerDeck": [
+          {
+            "seatNumber": "L1",
+            "row": 1,
+            "column": 1,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L2",
+            "row": 1,
+            "column": 2,
+            "type": "SEATER"
+          },
+          {
+            "seatNumber": "L3",
+            "row": 2,
+            "column": 1,
+            "type": "SEATER"
+          }
+        ]
+      }
+    }
+  ]
+  

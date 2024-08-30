@@ -1,0 +1,279 @@
+[
+    {
+      "source": "66d04e395e12db0e0a7af193",
+      "busId": "66d050415e12db0e0a7af1a1",
+      "destination": "66d04e395e12db0e0a7af194",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1000 },
+        { "stopId": 2, "arrivalTime": 1030 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1100 },
+        { "stopId": 4, "arrivalTime": 1130 }
+      ],
+      "prices": [
+        { "seatNumber": "A1", "price": 500 },
+        { "seatNumber": "A2", "price": 500 }
+      ],
+      "startTime": 1600,
+      "endTime": 1800,
+      "driverDetails": {
+        "contactNumber": "9876543210",
+        "name": "Ravi Kumar"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af194",
+      "busId": "66d050415e12db0e0a7af1a2",
+      "destination": "66d04e395e12db0e0a7af195",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1200 },
+        { "stopId": 2, "arrivalTime": 1230 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1300 },
+        { "stopId": 4, "arrivalTime": 1330 }
+      ],
+      "prices": [
+        { "seatNumber": "B1", "price": 600 },
+        { "seatNumber": "B2", "price": 600 }
+      ],
+      "startTime": 1400,
+      "endTime": 1600,
+      "driverDetails": {
+        "contactNumber": "9123456789",
+        "name": "Sunil Sharma"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af195",
+      "busId": "66d050415e12db0e0a7af1a3",
+      "destination": "66d04e395e12db0e0a7af196",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1300 },
+        { "stopId": 2, "arrivalTime": 1330 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1400 },
+        { "stopId": 4, "arrivalTime": 1430 }
+      ],
+      "prices": [
+        { "seatNumber": "C1", "price": 700 },
+        { "seatNumber": "C2", "price": 700 }
+      ],
+      "startTime": 1500,
+      "endTime": 1700,
+      "driverDetails": {
+        "contactNumber": "9345678901",
+        "name": "Manoj Patel"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af196",
+      "busId": "66d050415e12db0e0a7af1a4",
+      "destination": "66d04e395e12db0e0a7af193",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1400 },
+        { "stopId": 2, "arrivalTime": 1430 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1500 },
+        { "stopId": 4, "arrivalTime": 1530 }
+      ],
+      "prices": [
+        { "seatNumber": "D1", "price": 800 },
+        { "seatNumber": "D2", "price": 800 }
+      ],
+      "startTime": 1600,
+      "endTime": 1800,
+      "driverDetails": {
+        "contactNumber": "9654321098",
+        "name": "Arun Kumar"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af193",
+      "busId": "66d050415e12db0e0a7af1a5",
+      "destination": "66d04e395e12db0e0a7af194",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1100 },
+        { "stopId": 2, "arrivalTime": 1130 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1200 },
+        { "stopId": 4, "arrivalTime": 1230 }
+      ],
+      "prices": [
+        { "seatNumber": "E1", "price": 550 },
+        { "seatNumber": "E2", "price": 550 }
+      ],
+      "startTime": 1300,
+      "endTime": 1500,
+      "driverDetails": {
+        "contactNumber": "8765432109",
+        "name": "Vikram Singh"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af194",
+      "busId": "66d050415e12db0e0a7af1a1",
+      "destination": "66d04e395e12db0e0a7af195",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1200 },
+        { "stopId": 2, "arrivalTime": 1230 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1300 },
+        { "stopId": 4, "arrivalTime": 1330 }
+      ],
+      "prices": [
+        { "seatNumber": "F1", "price": 600 },
+        { "seatNumber": "F2", "price": 600 }
+      ],
+      "startTime": 1400,
+      "endTime": 1600,
+      "driverDetails": {
+        "contactNumber": "9876543210",
+        "name": "Rajesh Mehta"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af195",
+      "busId": "66d050415e12db0e0a7af1a2",
+      "destination": "66d04e395e12db0e0a7af196",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1300 },
+        { "stopId": 2, "arrivalTime": 1330 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1400 },
+        { "stopId": 4, "arrivalTime": 1430 }
+      ],
+      "prices": [
+        { "seatNumber": "G1", "price": 650 },
+        { "seatNumber": "G2", "price": 650 }
+      ],
+      "startTime": 1500,
+      "endTime": 1700,
+      "driverDetails": {
+        "contactNumber": "9123456789",
+        "name": "Suresh Patel"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af196",
+      "busId": "66d050415e12db0e0a7af1a3",
+      "destination": "66d04e395e12db0e0a7af193",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1400 },
+        { "stopId": 2, "arrivalTime": 1430 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1500 },
+        { "stopId": 4, "arrivalTime": 1530 }
+      ],
+      "prices": [
+        { "seatNumber": "H1", "price": 700 },
+        { "seatNumber": "H2", "price": 700 }
+      ],
+      "startTime": 1600,
+      "endTime": 1800,
+      "driverDetails": {
+        "contactNumber": "9345678901",
+        "name": "Amit Sharma"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af193",
+      "busId": "66d050415e12db0e0a7af1a4",
+      "destination": "66d04e395e12db0e0a7af194",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1100 },
+        { "stopId": 2, "arrivalTime": 1130 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1200 },
+        { "stopId": 4, "arrivalTime": 1230 }
+      ],
+      "prices": [
+        { "seatNumber": "I1", "price": 750 },
+        { "seatNumber": "I2", "price": 750 }
+      ],
+      "startTime": 1300,
+      "endTime": 1500,
+      "driverDetails": {
+        "contactNumber": "8765432109",
+        "name": "Pankaj Yadav"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af194",
+      "busId": "66d050415e12db0e0a7af1a5",
+      "destination": "66d04e395e12db0e0a7af195",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1200 },
+        { "stopId": 2, "arrivalTime": 1230 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1300 },
+        { "stopId": 4, "arrivalTime": 1330 }
+      ],
+      "prices": [
+        { "seatNumber": "J1", "price": 650 },
+        { "seatNumber": "J2", "price": 650 }
+      ],
+      "startTime": 1400,
+      "endTime": 1600,
+      "driverDetails": {
+        "contactNumber": "9654321098",
+        "name": "Kumar Singh"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af195",
+      "busId": "66d050415e12db0e0a7af1a1",
+      "destination": "66d04e395e12db0e0a7af196",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1300 },
+        { "stopId": 2, "arrivalTime": 1330 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1400 },
+        { "stopId": 4, "arrivalTime": 1430 }
+      ],
+      "prices": [
+        { "seatNumber": "K1", "price": 700 },
+        { "seatNumber": "K2", "price": 700 }
+      ],
+      "startTime": 1500,
+      "endTime": 1700,
+      "driverDetails": {
+        "contactNumber": "9345678901",
+        "name": "Ravi Singh"
+      }
+    },
+    {
+      "source": "66d04e395e12db0e0a7af196",
+      "busId": "66d050415e12db0e0a7af1a2",
+      "destination": "66d04e395e12db0e0a7af193",
+      "boardingPoints": [
+        { "stopId": 1, "arrivalTime": 1400 },
+        { "stopId": 2, "arrivalTime": 1430 }
+      ],
+      "droppingPoints": [
+        { "stopId": 3, "arrivalTime": 1500 },
+        { "stopId": 4, "arrivalTime": 1530 }
+      ],
+      "prices": [
+        { "seatNumber": "L1", "price": 750 },
+        { "seatNumber": "L2", "price": 750 }
+      ],
+      "startTime": 1600,
+      "endTime": 1800,
+      "driverDetails": {
+        "contactNumber": "9876543210",
+        "name": "Ajay Sharma"
+      }
+    }
+  ]
+  
