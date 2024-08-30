@@ -7,6 +7,7 @@ const getTripsList = async (source, destination, startTime) => {
         .populate("source")
         .populate("destination")
 
+
     const response = trips?.map((trip) => {
         const priceArr = trip.prices.map(p => p.price);
         return {
@@ -31,6 +32,7 @@ const getTripsList = async (source, destination, startTime) => {
             },
         }
     });
+    
     return response;
 }
 
