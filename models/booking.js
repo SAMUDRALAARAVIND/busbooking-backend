@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const genders = ["M", "F", "O"];
 
@@ -38,6 +39,6 @@ const bookingSchema = new Schema({
   droppingPointId: Number,
 });
 
-const bookingModel = model("Booking", bookingSchema);
+const bookingModel = mongoose.model("Booking", bookingSchema);
 
 module.exports = { bookingModel, genders };

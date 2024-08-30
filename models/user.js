@@ -22,7 +22,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please enter your email"],
     unique: true,
-    validate: [validator.isEmail, "Please provide a valid email"],
+    // validate: [validator.isEmail, "Please provide a valid email"],
   },
   contactNumber: {
     type: String,
@@ -32,6 +32,8 @@ const userSchema = new Schema({
     required: [true, "Please enter your password"],
   },
 });
+
+userSchema.set('strict', false)
 
 const userModel = model("User", userSchema);
 
