@@ -1,37 +1,24 @@
-import express from "express";
+const express = require("express");
 const app = express();
-import "dotenv/config";
-import { connectDb } from "./database/db.js";
-import cityRoutes from "./routes/cityRoutes.js"
+const cityRouter = require("./controllers/city");
+const signUpRouter = require("./controllers/signUp")
+const { connectDb } = require("./database/db");
+const loginRouter = require("./controllers/login")
 
+require("dotenv").config();
 
-//body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-connectDb();
-
-//default routes
-app.get("/", (req, res, next) => {
-  res.send("Hello from backend");
-});
-
-// Use the city routes
-app.use("/api" , cityRoutes)
-
-// creating server
 const PORT = process.env.PORT || 8000;
 const MODE = process.env.NODE_ENV || "production";
 
-const start = async () => {
-  try {
-    app.listen(PORT, () => {
-      // console.log("Listening on port", PORT, "in", MODE, "mode");
-      console.log(`Listening on port http://localhost:${PORT} in ${MODE} mode`);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
+connectDb();
 
-start();
+app.use("/city", cityRouter);
+app.use("/register" , signUpRouter)
+app.use("/auth" , loginRouter)
+
+app.listen(PORT, () => {
+  console.log(`App is running at  http://localhost:${PORT} in ${MODE} mode`);
+});

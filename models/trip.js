@@ -1,55 +1,39 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
-const tripSchema = new mongoose.Schema({
+const StopPoint = {
+  stopId: { type: Number, required: true },
+  arrivalTime: { type: Number, required: true },
+};
+
+const tripSchema = new Schema({
+  source: {
+    ref: "City",
+    type: Schema.Types.ObjectId,
+  },
   busId: {
-    type: mongoose.Schema.ObjectId,
-    ref: "busModel",
-    required: [true, "BusId is required"],
+    ref: "Bus",
+    type: Schema.Types.ObjectId,
   },
-  route: {
-    startLocation: {
-      type: String,
-      required: [true, "Start Location is required"],
+  destination: {
+    ref: "City",
+    type: Schema.Types.ObjectId,
+  },
+  boardingPoints: [StopPoint],
+  droppingPoints: [StopPoint],
+  prices: [
+    {
+      seatNumber: { type: String, required: true },
+      price: { type: Number, required: true },
     },
-    endLocation: {
-      type: String,
-      required: [true, "End Location is required"],
-    },
-    stops: [
-      {
-        title: {
-          type: String,
-          required: [true, "Stop title is required"],
-        },
-        arrivalTime: {
-          type: String,
-          required: [true, "Arrival Time is required"],
-        },
-        departureTime: {
-          type: String,
-          required: [true, "Departure Time is required"],
-        },
-      },
-    ],
-  },
-  arrivalTime: {
-    type: String,
-    required: [true, "Arrival Time is required"],
-  },
-  departureTime: {
-    type: String,
-    required: [true, "Departure Time is required"],
-  },
-  driverName: {
-    type: String,
-    required: [true, "Driver name is required"],
-  },
-  status: {
-    type: String,
-    required: [true, "Status is required"], // Status of the trip (scheduled, in-progress, completed, canceled)
+  ],
+  startTime: { type: Number, required: true },
+  endTime: { type: Number, required: true },
+  driverDetails: {
+    contactNumber: { type: String, required: true },
+    name: { type: String, required: true },
   },
 });
 
 const tripModel = model("Trip", tripSchema);
 
-export default tripModel;
+module.exports = tripModel;
