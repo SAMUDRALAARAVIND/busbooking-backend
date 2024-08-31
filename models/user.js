@@ -1,5 +1,9 @@
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
+<<<<<<< HEAD
+=======
+const validator = require("validator");
+>>>>>>> origin/feat/signUp_Login_api
 
 const userSchema = new Schema({
   fullName: {

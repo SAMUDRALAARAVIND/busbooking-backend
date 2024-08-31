@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
+
 
 const stopPoint = {
   stopId: {
@@ -45,4 +46,8 @@ const citySchema = new Schema({
 
 const cityModel = model("City", citySchema);
 
+<<<<<<< HEAD
 module.exports = cityModel;
+=======
+module.exports = cityModel;
+>>>>>>> origin/feat/signUp_Login_api
