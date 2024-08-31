@@ -1,37 +1,25 @@
 const express = require("express");
 const mongoConnection = require("./connection/mongoConnection");
 const cookieParser = require('cookie-parser');
+require("dotenv").config();
 
 const { registrationControler, loginControler, otpVerify } = require("./controler/Auth");
 const router = require("./routes/routes");
 
 
 const app = express();
-require('dotenv').config()
-
-app.use(cookieParser());
+const cityRouter = require("./controllers/city");
 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
 
 const PORT = process.env.PORT || 8000;
 const MODE = process.env.NODE_ENV || "production";
 
-
-//connection
-
-mongoConnection()
-
-
-
+app.use("/city", cityRouter);
 app.use('/', router)
-
-app.use('/', router)
-
-app.use('/register', router)
-
-
 
 
 

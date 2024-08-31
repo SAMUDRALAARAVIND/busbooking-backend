@@ -2,9 +2,11 @@ const userModel = require('../models/user');
 const bcrypt = require("bcryptjs");
 const generateOTP = require('../utils/generateOTP');
 const sendMail = require('../utils/sendMail');
+const jwt = require("jsonwebtoken");
  
 const registrationControler = async (req, res) => {
  
+    
     console.log("hit")
     const { fullName, gender, dob, email, contactNumber, password } = req.body;
     try {
@@ -79,13 +81,23 @@ const loginControler = async (req, res) => {
             email: email
         })
         if (!user) return res.status(400).json({ message: 'User not found' })
+
         const match = bcrypt.compare(password, user.password)
+
         if (!match) return res.status(400).json({ message: 'Incorect Password' })
-        res.status(200).json({ message: 'User logged in successfully', token: user._id })
+
+            const token = jwt.sign(
+                { userId: user._id, email: user.email },
+                process.env.JWT_SECRET,
+                { expiresIn: "1d" }
+              );
+
+        res.status(200).json({ message: 'User logged in successfully', token: token })
     } catch (error) {
         res.status(500).json({ message: 'Error: ' + error.message })
     }
 }
+
  
  
 module.exports = { registrationControler, loginControler, otpVerify };
