@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
+const validator = require("validator"); // installed validator package
 
 const userSchema = new Schema({
   fullName: {

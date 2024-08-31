@@ -68,14 +68,14 @@ Response:
       // used for fetching the seat layout
       tripId: String,
       // used while booking any seats for this trip.
-      busPartner: String,
+      busPartner: String, //bus
       departureTime: Number,
       arrivalTime: Number, // epoch time
-      amenities: [String],
-      averageRating: Number,
-      numberOfRatings: Number,
-      availableSeats: Number,
-      busType: String,
+      amenities: [String], //bus
+      averageRating: Number, //hard code
+      numberOfRatings: Number,//hard code
+      availableSeats: Number,//hard code
+      busType: String,//bus
       minPrice: Number,
       maxPrice: Number,
       boardingPoints: [Number],

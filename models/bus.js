@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose");
 
 const busTypes = {
   AC: "AC",
@@ -36,9 +36,8 @@ const busSchema = new Schema({
     required: [true, "Bus Type is required"],
   },
   amenities: {
-    type: String,
+    type: [String], //changed string to array of string
     enum: amenities,
-    default: "",
   },
   busNumber: {
     type: String,
