@@ -2,21 +2,21 @@ const tripModel = require("../models/trip.js");
 const cityModel = require("../models/city.js");
 const busModel = require("../models/bus.js");
 
-const getTrips = async (req, res, next) => {
-  let { sourceCityId, destinationCityId, travelDate } = req.body;
+const getTrips = async (query, res) => {
+  let { sourceCityId, destinationCityId, travelDate } = query;
 
-  if ((!sourceCityId || !destinationCityId, !travelDate)) {
-    res.status(400);
-    throw new Error("Please provide proper Qurey Details");
-  }
-
-  const reqDateString = new Date(travelDate).toISOString().split("T")[0];
+  const searchDateString = new Date(travelDate).toISOString().split("T")[0];
   const todayDateString = new Date().toISOString().split("T")[0];
   const todayEpochTime = new Date(todayDateString + "T00:00:00Z").getTime();
 
-  if (reqDateString === todayDateString) travelDate = Date.now();
+  let startTime = travelDate;
+  let endTime = new Date(searchDateString + "T23:59:59Z").getTime();
 
-  if (travelDate < todayEpochTime) {
+  //checking if the search Date and today Date is same
+  if (searchDateString === todayDateString) startTime = Date.now();
+
+  //checking if the search date is less than today date
+  if (startTime < todayEpochTime) {
     res.status(400);
     throw new Error("Please Provide a valid Date");
   }
@@ -24,13 +24,11 @@ const getTrips = async (req, res, next) => {
   const sourceCity = await cityModel.findById(sourceCityId);
   const destinationCity = await cityModel.findById(destinationCityId);
 
+  // checking if city is present in database
   if (!sourceCity || !destinationCity) {
     res.status(404);
     throw new Error("Requested City not Found");
   }
-
-  const startTime = travelDate;
-  const endTime = new Date(reqDateString + "T23:59:59Z").getTime();
 
   const trips = await tripModel
     .find({
