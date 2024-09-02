@@ -3,6 +3,7 @@ const app = express();
 // import "dotenv/config";
 require("dotenv").config();
 const tripRouter = require("./controllers/trip.js");
+const busRouter = require("./controllers/bus.js");
 const { default: mongoose } = require("mongoose");
 const { notFound, errorHandler } = require("./middlewares/errorHandler.js");
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/trips", tripRouter);
+app.use("/api/bus", busRouter);
 
 app.use(notFound);
 app.use(errorHandler);
