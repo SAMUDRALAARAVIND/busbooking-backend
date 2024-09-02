@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
+const validator = require("validator");
 
 const userSchema = new Schema({
   fullName: {
@@ -32,6 +33,8 @@ const userSchema = new Schema({
     required: [true, "Please enter your password"],
   },
 });
+
+userSchema.set('strict', false)
 
 const userModel = model("User", userSchema);
 

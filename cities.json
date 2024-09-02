@@ -1,0 +1,485 @@
+[
+  {
+    "name": "Mumbai",
+    "state": "Maharashtra",
+    "lat": 19.0760,
+    "lng": 72.8777,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Gateway of India",
+        "directions": "South",
+        "lat": 18.9220,
+        "lng": 72.8347
+      },
+      {
+        "stopId": 2,
+        "title": "Marine Drive",
+        "directions": "West",
+        "lat": 18.9438,
+        "lng": 72.8233
+      }
+    ],
+    "pinCode": 400001
+  },
+  {
+    "name": "Delhi",
+    "state": "Delhi",
+    "lat": 28.6139,
+    "lng": 77.2090,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "India Gate",
+        "directions": "East",
+        "lat": 28.6129,
+        "lng": 77.2295
+      },
+      {
+        "stopId": 2,
+        "title": "Red Fort",
+        "directions": "North",
+        "lat": 28.6562,
+        "lng": 77.2410
+      }
+    ],
+    "pinCode": 110001
+  },
+  {
+    "name": "Bangalore",
+    "state": "Karnataka",
+    "lat": 12.9716,
+    "lng": 77.5946,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Lal Bagh",
+        "directions": "South",
+        "lat": 12.9507,
+        "lng": 77.5848
+      },
+      {
+        "stopId": 2,
+        "title": "Cubbon Park",
+        "directions": "West",
+        "lat": 12.9763,
+        "lng": 77.5929
+      }
+    ],
+    "pinCode": 560001
+  },
+  {
+    "name": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 13.0827,
+    "lng": 80.2707,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Marina Beach",
+        "directions": "East",
+        "lat": 13.0500,
+        "lng": 80.2824
+      },
+      {
+        "stopId": 2,
+        "title": "Fort St. George",
+        "directions": "North",
+        "lat": 13.0810,
+        "lng": 80.2870
+      }
+    ],
+    "pinCode": 600001
+  },
+  {
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.3850,
+    "lng": 78.4867,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Charminar",
+        "directions": "South",
+        "lat": 17.3616,
+        "lng": 78.4747
+      },
+      {
+        "stopId": 2,
+        "title": "Golconda Fort",
+        "directions": "West",
+        "lat": 17.3833,
+        "lng": 78.4011
+      }
+    ],
+    "pinCode": 500001
+  },
+  {
+    "name": "Ahmedabad",
+    "state": "Gujarat",
+    "lat": 23.0225,
+    "lng": 72.5714,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Sabarmati Ashram",
+        "directions": "North",
+        "lat": 23.0600,
+        "lng": 72.5800
+      },
+      {
+        "stopId": 2,
+        "title": "Kankaria Lake",
+        "directions": "South",
+        "lat": 22.9910,
+        "lng": 72.5983
+      }
+    ],
+    "pinCode": 380001
+  },
+  {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.5204,
+    "lng": 73.8567,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Shaniwar Wada",
+        "directions": "West",
+        "lat": 18.5195,
+        "lng": 73.8554
+      },
+      {
+        "stopId": 2,
+        "title": "Aga Khan Palace",
+        "directions": "East",
+        "lat": 18.5523,
+        "lng": 73.8993
+      }
+    ],
+    "pinCode": 411001
+  },
+  {
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.5726,
+    "lng": 88.3639,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Victoria Memorial",
+        "directions": "South",
+        "lat": 22.5448,
+        "lng": 88.3426
+      },
+      {
+        "stopId": 2,
+        "title": "Howrah Bridge",
+        "directions": "North",
+        "lat": 22.5850,
+        "lng": 88.3466
+      }
+    ],
+    "pinCode": 700001
+  },
+  {
+    "name": "Jaipur",
+    "state": "Rajasthan",
+    "lat": 26.9124,
+    "lng": 75.7873,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Hawa Mahal",
+        "directions": "North",
+        "lat": 26.9239,
+        "lng": 75.8267
+      },
+      {
+        "stopId": 2,
+        "title": "Amber Fort",
+        "directions": "East",
+        "lat": 26.9855,
+        "lng": 75.8513
+      }
+    ],
+    "pinCode": 302001
+  },
+  {
+    "name": "Lucknow",
+    "state": "Uttar Pradesh",
+    "lat": 26.8467,
+    "lng": 80.9462,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Bara Imambara",
+        "directions": "West",
+        "lat": 26.8692,
+        "lng": 80.9129
+      },
+      {
+        "stopId": 2,
+        "title": "Rumi Darwaza",
+        "directions": "East",
+        "lat": 26.8693,
+        "lng": 80.9156
+      }
+    ],
+    "pinCode": 226001
+  },
+  {
+    "name": "Chandigarh",
+    "state": "Chandigarh",
+    "lat": 30.7333,
+    "lng": 76.7794,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Rock Garden",
+        "directions": "North",
+        "lat": 30.7522,
+        "lng": 76.8073
+      },
+      {
+        "stopId": 2,
+        "title": "Sukhna Lake",
+        "directions": "East",
+        "lat": 30.7421,
+        "lng": 76.8188
+      }
+    ],
+    "pinCode": 160001
+  },
+  {
+    "name": "Gurgaon",
+    "state": "Haryana",
+    "lat": 28.4595,
+    "lng": 77.0266,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Kingdom of Dreams",
+        "directions": "South",
+        "lat": 28.4636,
+        "lng": 77.0636
+      },
+      {
+        "stopId": 2,
+        "title": "Cyber Hub",
+        "directions": "West",
+        "lat": 28.4941,
+        "lng": 77.0879
+      }
+    ],
+    "pinCode": 122001
+  },
+  {
+    "name": "Noida",
+    "state": "Uttar Pradesh",
+    "lat": 28.5355,
+    "lng": 77.3910,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Worlds of Wonder",
+        "directions": "South",
+        "lat": 28.5677,
+        "lng": 77.3260
+      },
+      {
+        "stopId": 2,
+        "title": "Great India Place",
+        "directions": "West",
+        "lat": 28.5671,
+        "lng": 77.3236
+      }
+    ],
+    "pinCode": 201301
+  },
+  {
+    "name": "Indore",
+    "state": "Madhya Pradesh",
+    "lat": 22.7196,
+    "lng": 75.8577,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Rajwada Palace",
+        "directions": "West",
+        "lat": 22.7170,
+        "lng": 75.8577
+      },
+      {
+        "stopId": 2,
+        "title": "Lal Bagh Palace",
+        "directions": "South",
+        "lat": 22.6921,
+        "lng": 75.8375
+      }
+    ],
+    "pinCode": 452001
+  },
+  {
+    "name": "Bhopal",
+    "state": "Madhya Pradesh",
+    "lat": 23.2599,
+    "lng": 77.4126,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Upper Lake",
+        "directions": "North",
+        "lat": 23.2380,
+        "lng": 77.3612
+      },
+      {
+        "stopId": 2,
+        "title": "Taj-ul-Masajid",
+        "directions": "East",
+        "lat": 23.2688,
+        "lng": 77.4039
+      }
+    ],
+    "pinCode": 462001
+  },
+  {
+    "name": "Kochi",
+    "state": "Kerala",
+    "lat": 9.9312,
+    "lng": 76.2673,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Fort Kochi",
+        "directions": "South",
+        "lat": 9.9663,
+        "lng": 76.2438
+      },
+      {
+        "stopId": 2,
+        "title": "Marine Drive",
+        "directions": "East",
+        "lat": 9.9789,
+        "lng": 76.2767
+      }
+    ],
+    "pinCode": 682001
+  },
+  {
+    "name": "Thiruvananthapuram",
+    "state": "Kerala",
+    "lat": 8.5241,
+    "lng": 76.9366,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Padmanabhaswamy Temple",
+        "directions": "North",
+        "lat": 8.4828,
+        "lng": 76.9435
+      },
+      {
+        "stopId": 2,
+        "title": "Kovalam Beach",
+        "directions": "South",
+        "lat": 8.4000,
+        "lng": 76.9784
+      }
+    ],
+    "pinCode": 695001
+  },
+  {
+    "name": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "lat": 17.6868,
+    "lng": 83.2185,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Rama Krishna Beach",
+        "directions": "East",
+        "lat": 17.7177,
+        "lng": 83.3275
+      },
+      {
+        "stopId": 2,
+        "title": "Kailasagiri",
+        "directions": "North",
+        "lat": 17.7401,
+        "lng": 83.3387
+      }
+    ],
+    "pinCode": 530001
+  },
+  {
+    "name": "Coimbatore",
+    "state": "Tamil Nadu",
+    "lat": 11.0168,
+    "lng": 76.9558,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Marudamalai Temple",
+        "directions": "North",
+        "lat": 11.1000,
+        "lng": 76.8387
+      },
+      {
+        "stopId": 2,
+        "title": "VOC Park & Zoo",
+        "directions": "South",
+        "lat": 11.0080,
+        "lng": 76.9628
+      }
+    ],
+    "pinCode": 641001
+  },
+  {
+    "name": "Mysore",
+    "state": "Karnataka",
+    "lat": 12.2958,
+    "lng": 76.6394,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Mysore Palace",
+        "directions": "West",
+        "lat": 12.3052,
+        "lng": 76.6551
+      },
+      {
+        "stopId": 2,
+        "title": "Chamundi Hill",
+        "directions": "South",
+        "lat": 12.2727,
+        "lng": 76.6932
+      }
+    ],
+    "pinCode": 570001
+  },
+  {
+    "name": "Goa",
+    "state": "Goa",
+    "lat": 15.2993,
+    "lng": 74.1240,
+    "stopPoints": [
+      {
+        "stopId": 1,
+        "title": "Calangute Beach",
+        "directions": "North",
+        "lat": 15.5481,
+        "lng": 73.7559
+      },
+      {
+        "stopId": 2,
+        "title": "Basilica of Bom Jesus",
+        "directions": "South",
+        "lat": 15.5009,
+        "lng": 73.9116
+      }
+    ],
+    "pinCode": 403001
+  }
+]
