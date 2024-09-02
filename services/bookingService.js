@@ -5,15 +5,15 @@ const { validateBookingData } = require("../utils/bookingUtils");
 
 
 const bookTrip = async (bookingData, user) => {
-    
+
     const { tripId, boardingPointId, droppingPointId, seatsInfo, pocDetails } = bookingData;
-    
+
     try {
-        
+
         await validateBookingData({ tripId, boardingPointId, droppingPointId, seatsInfo, pocDetails });
 
         const trip = await tripModel.findOne({ _id: tripId });
-        
+
         if (!trip) {
             throw new Error("Trip not found");
         }
@@ -23,11 +23,11 @@ const bookTrip = async (bookingData, user) => {
             throw new Error("Bus not found");
         }
 
+        let totalPrice = 0;
         const seatPrices = seatsInfo.map((seat) => {
-            let totalPrice;
             const priceInfo = trip.prices.map((p) => p.seatNumber === seat.seatNumber)
             if (!priceInfo) {
-                throw new Error(`Price not found for seat ${seat.seatNumber}`);
+                throw new Error(`Price not found for seat ${ seat.seatNumber }`);
             }
             return { ...seat, price: totalPrice += priceInfo.price };
         });
@@ -49,5 +49,4 @@ const bookTrip = async (bookingData, user) => {
     }
 }
 
-module.exports = { bookTrip } 
-//tripId: mongoose.Types.ObjectId(tripId),
+module.exports = { bookTrip }
