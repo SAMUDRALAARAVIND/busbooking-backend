@@ -16,7 +16,7 @@ const userSchema = new Schema({
   },
   dob: {
     type: Number,
-    //required: true,
+    required: true,
   },
   email: {
     // TODO: handle email validation
