@@ -1,9 +1,6 @@
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
-<<<<<<< HEAD
-=======
 const validator = require("validator");
->>>>>>> origin/feat/signUp_Login_api
 
 const userSchema = new Schema({
   fullName: {
@@ -19,7 +16,7 @@ const userSchema = new Schema({
   },
   dob: {
     type: Number,
-    required: true,
+    //required: true,
   },
   email: {
     // TODO: handle email validation
@@ -35,6 +32,16 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please enter your password"],
   },
+  otp: {
+    type: String,
+  },
+  otpExpires: {
+    type: Date,
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const userModel = model("User", userSchema);
