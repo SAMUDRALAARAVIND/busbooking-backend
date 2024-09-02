@@ -15,10 +15,14 @@ const verifyOtp = async ({ email, otp }) => {
         if (user.otpExpires < Date.now()) {
             throw new Error("expired OTP");
         }
-
-        user.isEmailVerified = true;
-        user.otp = undefined;
-        user.otpExpires = undefined;
+        
+        await userModel.findOneAndUpdate(
+            { email },
+            {
+                $set: { isEmailVerified: true },
+                $unset: { otp: "", otpExpires: "" }
+            }
+        );
 
         await user.save();
         return "Otp successfull verified";
@@ -36,20 +40,22 @@ const regenerateOtp = async ({ email }) => {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const otpExpires = Date.now() + 10 * 60 * 1000;
 
-        user.otp = otp;
-        user.otpExpires = otpExpires;
+        await userModel.findOneAndUpdate(
+            { email },
+            { otp: otp, otpExpires: otpExpires }
+        );
 
         await user.save();
 
         // Send the new OTP via email
         await sendVerificationMail(email, otp);
-        return  "Otp send to your Mail";
+        return "Otp send to your Mail";
     } catch (error) {
         throw new Error(error.message);
     }
 }
 
-module.exports = { 
+module.exports = {
     verifyOtp,
     regenerateOtp
- };
+};

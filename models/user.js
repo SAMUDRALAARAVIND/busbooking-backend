@@ -32,17 +32,9 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please enter your password"],
   },
-  otp: {
-    type: String,
-  },
-  otpExpires: {
-    type: Date,
-  },
-  isEmailVerified: {
-    type: Boolean,
-    default: false
-  }
 });
+
+userSchema.set('strict', false)
 
 const userModel = model("User", userSchema);
 

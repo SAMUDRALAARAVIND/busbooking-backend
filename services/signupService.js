@@ -28,8 +28,9 @@ const userSignUp = async (userData) => {
       email,
       contactNumber,
       password: hashedPassword,
-      otp,
-      otpExpires
+      otp: otp,
+      otpExpires: otpExpires,
+      isEmailVerified: false,
     });
 
     await newUser.save();
