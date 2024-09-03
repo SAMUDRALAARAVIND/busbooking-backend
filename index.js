@@ -4,9 +4,8 @@ const cityRouter = require("./controllers/city");
 const signUpRouter = require("./controllers/signUp")
 const { connectDb } = require("./database/db");
 const loginRouter = require("./controllers/login");
-const bookingRouter = require("./controllers/booking")
+const bookingRouter = require("./controllers/booking");
 const router = require("./controllers/generatedOtp");
-const authenticateUser = require("./utils/authenticateUser");
 
 require("dotenv").config();
 
@@ -21,7 +20,7 @@ connectDb();
 app.use("/city", cityRouter);
 app.use("/register" , signUpRouter);
 app.use("/auth" , loginRouter);
-app.use("/booking", authenticateUser, bookingRouter);
+app.use("/booking", bookingRouter);
 
 app.use("/otp", router);
 

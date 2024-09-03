@@ -16,13 +16,9 @@ const verifyOtp = async ({ email, otp }) => {
             throw new Error("expired OTP");
         }
         
-        await userModel.findOneAndUpdate(
-            { email },
-            {
-                $set: { isEmailVerified: true },
-                $unset: { otp: "", otpExpires: "" }
-            }
-        );
+        user.isEmailVerified = true;
+        user.otp = undefined;
+        user.otpExpires = undefined;
 
         await user.save();
         return "Otp successfull verified";
@@ -40,10 +36,8 @@ const regenerateOtp = async ({ email }) => {
         const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const otpExpires = Date.now() + 10 * 60 * 1000;
 
-        await userModel.findOneAndUpdate(
-            { email },
-            { otp: otp, otpExpires: otpExpires }
-        );
+        user.otp = otp;
+        user.otpExpires = otpExpires;
 
         await user.save();
 

@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
-const validator = require("validator");
 
 const userSchema = new Schema({
   fullName: {
@@ -16,14 +15,13 @@ const userSchema = new Schema({
   },
   dob: {
     type: Number,
-    required: true,
+    //required: true,
   },
   email: {
     // TODO: handle email validation
     type: String,
     required: [true, "Please enter your email"],
     unique: true,
-    validate: [validator.isEmail, "Please provide a valid email"],
   },
   contactNumber: {
     type: String,
@@ -32,9 +30,17 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please enter your password"],
   },
+  otp: {
+    type: String,
+  },
+  otpExpires: {
+    type: Number,
+  },
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
 });
-
-userSchema.set('strict', false)
 
 const userModel = model("User", userSchema);
 

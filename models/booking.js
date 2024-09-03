@@ -34,8 +34,8 @@ const bookingSchema = new Schema({
     phoneNumber: String,
     email: String,
   },
-  boardingPointId: Number,
-  droppingPointId: Number,
+  boardingPointId: Schema.Types.ObjectId,
+  droppingPointId: Schema.Types.ObjectId,
 });
 
 const bookingModel = model("Booking", bookingSchema);

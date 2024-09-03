@@ -1,8 +1,10 @@
 const { bookTrip } = require("../services/bookingService");
+const authenticateUser = require("../utils/authenticateUser");
 
 const router = require("express").Router();
 
-router.post("/book", async (req, res) => {
+router.post("/book", authenticateUser, async (req, res) => {
+    console.log(req.user);
     try {
         const bookedDetails = await bookTrip(req.body, req.user);
         return res.status(200).json({ message: "Booking Successful", bookedDetails });
@@ -16,5 +18,3 @@ router.post("/book", async (req, res) => {
 });
 
 module.exports = router;
-
-//tripId, boardingPointId, droppingPointId, seatsInfo, pocDetails

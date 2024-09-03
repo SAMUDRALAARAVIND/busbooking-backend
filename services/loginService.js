@@ -2,14 +2,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/user");
 
-const userLogin = async ({ identifier, password }) => {
-  if(!identifier || !password) return res.status(401).json("please enter your email and password")
+const userLogin = async ({ email, password }) => {
+  if (!email || !password) {
+    throw new Error("please enter your email and password")
+  }
   try {
-    const isEmail = identifier.includes("@");
-
-    const user = await userModel.findOne(
-      isEmail ? { email: identifier } : { contactNumber: identifier }
-    );
+    const user = await userModel.findOne({ email });
 
     if (!user) {
       throw new Error("User does not exist");

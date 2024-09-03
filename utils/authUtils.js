@@ -10,7 +10,7 @@ const isEmailValidate = (key) => {
 };
 
 // Validate user data
-const userDataValidation = ({ fullName, email, password, gender, dob }) => {
+const userDataValidation = ({ fullName, email, password, gender }) => {
   return new Promise((resolve, reject) => {
     if (!fullName || !email || !password || !gender) {
       return reject("Missing required user data");
@@ -29,16 +29,10 @@ const userDataValidation = ({ fullName, email, password, gender, dob }) => {
       return reject("Email format is incorrect");
     }
 
+
     resolve();
   });
 };
 
-const verifyToken = (token) => {
-  try {
-    return JWT.verify(token, process.env.JWT_SECRET)
-  } catch (error) {
-    return `Token verification failed: ${error.message}`;
-  }
-}
 
-module.exports = { userDataValidation, isEmailValidate, verifyToken };
+module.exports = { userDataValidation, isEmailValidate };
