@@ -7,12 +7,27 @@ const router = require("./routes/routes");
 
 
 const app = express();
+
 const cityRouter = require("./controllers/city");
 
+
+require("dotenv").config();
+const globalErrorHandler = require("./middlewares/globalErrorHandler");
+const cityRouter = require("./controllers/city");
+const tripRouter = require("./controllers/trip.js");
+const mongoose = require("mongoose");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("connected successfully"));
+
+
+
+app.use(globalErrorHandler);
 
 const PORT = process.env.PORT || 8000;
 const MODE = process.env.NODE_ENV || "production";
@@ -23,6 +38,7 @@ mongoConnection()
 
 
 app.use("/city", cityRouter);
+app.use("/api/trips", tripRouter);
 app.use('/', router)
 
 
