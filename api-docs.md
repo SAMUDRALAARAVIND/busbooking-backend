@@ -85,10 +85,98 @@ Response:
 }
 ```
 
-```bash
+```
 chennai: [ 10, {stopId: 20, title: "Ambedkar statue", directions: "", lat: 38.4, lng: 49.4 }, 40, 50, 80 ]
 
 Trips:
     trip1: [20, 40, 80]
     trip2: [10, 20, 80, 3939]
 ```
+
+### Seat Layout API
+
+GET `bus/layout?tripId={trip_id}`
+
+Response:
+
+```javascript
+{
+  upperDeck: {
+    seats: [
+      {
+        seatNumber: "L3",
+        gender: "M" | "F" | "O" | null, // null for available seat
+        row: 10,
+        column: 3,
+        price: number,
+      }
+    ]
+  },
+  lowerDeck: {
+    seats: [
+      {
+        seatNumber: "L3",
+        gender: "M" | "F" | "O" | null, // null for available seat
+        row: 10,
+        column: 3,
+        price: number,
+      }
+    ]
+  }
+}
+```
+
+Error scenarios:
+
+Invalid tripId:( when all seats are booked )
+
+```javascript
+{
+  error: "trip is not available";
+}
+```
+
+### Booking API
+
+** This action can only be done by a loggedin user. **
+
+POST `/book`
+
+Request:
+
+- all the data in request should be validated
+- take the price details from database as they're the source of truth.
+
+```javascript
+{
+  tripId: String,
+  boardingPointId: Number,
+  droppingPointId: Number,
+  seatsInfo: [
+    {
+      seatNumber: "L3",
+      name: "",
+      age: "",
+      gender: "" // M | F | O
+    }
+  ],
+  pocDetails: {
+    contactNumber: string,
+    name: string,
+    email: string
+  }
+}
+```
+
+praveen & team:
+Praveen(Lead)
+Manish
+Shweta
+Anjali
+Sai kiran
+
+Disordered team:
+Kapil(Lead)
+Kajal
+Shahzeb
+Prakriti

@@ -1,87 +1,102 @@
 const tripModel = require("../models/trip.js");
+const CustomError = require("./../utils/createCustomError.js");
 const cityModel = require("../models/city.js");
 const busModel = require("../models/bus.js");
+const bookingModel = require("../models/bus.js");
+const { Types } = require("mongoose");
 
-const getTrips = async (req, res, next) => {
-  let { sourceCityId, destinationCityId, travelDate } = req.body;
+const getAvailableSeats = async (bus, tripId) => {
+  const bookings = await bookingModel.find({ tripId });
+  const totalSeat = bus.layout?.upperDeck.length + bus.layout.lowerDeck.length;
+  let availableSeats = totalSeat;
+  if (bookings.length) {
+    const bookedSeats = bookings.reduce((a, c) => a + c.seatsInfo.length, 0);
+    availableSeats = totalSeat - bookedSeats;
+  }
+  return availableSeats;
+};
 
-  if ((!sourceCityId || !destinationCityId, !travelDate)) {
-    res.status(400);
-    throw new Error("Please provide proper Qurey Details");
+const getTrips = async (query) => {
+  let { sourceCityId, destinationCityId, travelDate } = query;
+
+  const today12AM = new Date();
+  today12AM.setHours(0, 0, 0, 0);
+  const today1159PM = new Date();
+  today1159PM.setHours(23, 59, 59, 999);
+
+  let searchFilter = {};
+
+  if (today12AM.getTime() / 1000 > Number(travelDate)) {
+    throw new CustomError("Invalid Date", 400);
   }
 
-  const reqDateString = new Date(travelDate).toISOString().split("T")[0];
-  const todayDateString = new Date().toISOString().split("T")[0];
-  const todayEpochTime = new Date(todayDateString + "T00:00:00Z").getTime();
-
-  if (reqDateString === todayDateString) travelDate = Date.now();
-
-  if (travelDate < todayEpochTime) {
-    res.status(400);
-    throw new Error("Please Provide a valid Date");
+  if (
+    travelDate >= today12AM.getTime() / 1000 &&
+    travelDate <= today1159PM.getTime() / 1000
+  ) {
+    searchFilter["startTime"] = {
+      $gte: parseInt(Date.now() / 1000),
+      $lte: parseInt(today1159PM.getTime() / 1000),
+    };
+  } else {
+    const travelDate12AM = new Date(travelDate * 1000);
+    travelDate12AM.setHours(0, 0, 0, 0);
+    const travelDate1159PM = new Date(travelDate * 1000);
+    travelDate1159PM.setHours(23, 59, 59, 999);
+    searchFilter["startTime"] = {
+      $gte: parseInt(travelDate12AM.getTime() / 1000),
+      $lte: parseInt(travelDate1159PM.getTime() / 1000),
+    };
   }
+
+  searchFilter.source = new Types.ObjectId(sourceCityId);
+  searchFilter.destination = new Types.ObjectId(destinationCityId);
 
   const sourceCity = await cityModel.findById(sourceCityId);
   const destinationCity = await cityModel.findById(destinationCityId);
 
+  // checking if city is present in database
   if (!sourceCity || !destinationCity) {
-    res.status(404);
-    throw new Error("Requested City not Found");
+    throw new CustomError("Requested City not Found", 404);
   }
 
-  const startTime = travelDate;
-  const endTime = new Date(reqDateString + "T23:59:59Z").getTime();
+  const trips = await tripModel.find(searchFilter).populate("busId");
 
-  const trips = await tripModel
-    .find({
-      source: sourceCityId,
-      destination: destinationCityId,
-      startTime: {
-        $gte: startTime,
-        $lte: endTime,
-      },
-    })
-    .populate("busId");
+  const response = {};
+  response.success = true;
+  response.results = trips.length;
 
-  const boardingPoints = sourceCity?.stopPoints;
-  const dropingPoints = destinationCity?.stopPoints;
+  response.boardingPoints = sourceCity?.stopPoints;
+  response.dropingPoints = destinationCity?.stopPoints;
 
-  const formatedTrips = trips.map((trip) => {
-    const totalSeats =
-      trip.busId?.layout?.upperDeck?.length +
-      trip.busId?.layout?.lowerDeck?.length;
-    let minPrice = Number.MAX_SAFE_INTEGER;
-    let maxPrice = 0;
-    for (let p of trip.prices) {
-      if (Number(p.price) < minPrice) minPrice = p.price;
-      if (Number(p.price) > maxPrice) maxPrice = p.price;
-    }
+  response.trips = [];
+  for (let trip of trips) {
+    const bus = trip.busId;
+    let minPrice = Number.MAX_SAFE_INTEGER,
+      maxPrice = 0;
+    trip.prices.forEach((seatPrice) => {
+      if (minPrice > seatPrice.price) minPrice = seatPrice.price;
+      if (maxPrice < seatPrice.price) maxPrice = seatPrice.price;
+    });
 
-    return {
-      busId: trip.busId._id,
+    response.trips.push({
+      busId: bus._id,
       tripId: trip._id,
-      busPartner: trip.busId.busPartner,
-      departureTime: trip.endTime,
-      arrivalTime: trip.startTime,
-      amenities: trip.busId.amenities,
-      averageRating: 3.5,
-      numberOfRatings: 3500,
-      availableSeats: totalSeats,
-      busType: trip.busId.busType,
+      // used while booking any seats for this trip.
+      busPartner: bus.busPartener, //bus
+      departureTime: trip.startTime,
+      arrivalTime: trip.endTime, // epoch time
+      amenities: bus.amenities, //bus
+      availableSeats: await getAvailableSeats(bus, trip._id),
+      busType: bus.busType,
       minPrice,
       maxPrice,
       boardingPoints: trip.boardingPoints,
       droppingPoints: trip.droppingPoints,
-    };
-  });
+    });
+  }
 
-  return {
-    success: true,
-    results: formatedTrips.length,
-    boardingPoints,
-    dropingPoints,
-    trips: formatedTrips,
-  };
+  return response;
 };
 
 module.exports = getTrips;

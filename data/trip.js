@@ -888,6 +888,182 @@ const trips = [
       name: "Bob White",
     },
   },
+
+  {
+    source: "", // Replace with actual city ObjectId
+    busId: "", // Replace with actual bus ObjectId
+    destination: "", // Replace with actual city ObjectId
+    boardingPoints: [
+      {
+        stopId: 1,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 2,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    droppingPoints: [
+      {
+        stopId: 3,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 4,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    prices: [
+      { seatNumber: "A1", price: 500 },
+      { seatNumber: "A2", price: 500 },
+    ],
+    startTime: 1725280200000, // Updated epoch time in milliseconds
+    endTime: 1725280200000, // Updated epoch time in milliseconds
+    driverDetails: {
+      contactNumber: "1234567890",
+      name: "John Doe",
+    },
+  },
+  {
+    source: "", // Replace with actual city ObjectId
+    busId: "", // Replace with actual bus ObjectId
+    destination: "", // Replace with actual city ObjectId
+    boardingPoints: [
+      {
+        stopId: 5,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 6,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    droppingPoints: [
+      {
+        stopId: 7,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 8,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    prices: [
+      { seatNumber: "B1", price: 600 },
+      { seatNumber: "B2", price: 600 },
+    ],
+    startTime: 1725280200000, // Updated epoch time in milliseconds
+    endTime: 1725280200000, // Updated epoch time in milliseconds
+    driverDetails: {
+      contactNumber: "0987654321",
+      name: "Jane Smith",
+    },
+  },
+  {
+    source: "", // Replace with actual city ObjectId
+    busId: "", // Replace with actual bus ObjectId
+    destination: "", // Replace with actual city ObjectId
+    boardingPoints: [
+      {
+        stopId: 9,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 10,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    droppingPoints: [
+      {
+        stopId: 11,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 12,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    prices: [
+      { seatNumber: "C1", price: 550 },
+      { seatNumber: "C2", price: 550 },
+    ],
+    startTime: 1725280200000, // Updated epoch time in milliseconds
+    endTime: 1725280200000, // Updated epoch time in milliseconds
+    driverDetails: {
+      contactNumber: "1234509876",
+      name: "Mike Johnson",
+    },
+  },
+  {
+    source: "", // Replace with actual city ObjectId
+    busId: "", // Replace with actual bus ObjectId
+    destination: "", // Replace with actual city ObjectId
+    boardingPoints: [
+      {
+        stopId: 13,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 14,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    droppingPoints: [
+      {
+        stopId: 15,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 16,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    prices: [
+      { seatNumber: "D1", price: 620 },
+      { seatNumber: "D2", price: 620 },
+    ],
+    startTime: 1725280200000, // Updated epoch time in milliseconds
+    endTime: 1725280200000, // Updated epoch time in milliseconds
+    driverDetails: {
+      contactNumber: "2345678901",
+      name: "Alice Brown",
+    },
+  },
+  {
+    source: "", // Replace with actual city ObjectId
+    busId: "", // Replace with actual bus ObjectId
+    destination: "", // Replace with actual city ObjectId
+    boardingPoints: [
+      {
+        stopId: 17,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 18,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    droppingPoints: [
+      {
+        stopId: 19,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+      {
+        stopId: 20,
+        arrivalTime: 1725280200000, // Updated epoch time in milliseconds
+      },
+    ],
+    prices: [
+      { seatNumber: "E1", price: 630 },
+      { seatNumber: "E2", price: 630 },
+    ],
+    startTime: 1725280200000, // Updated epoch time in milliseconds
+    endTime: 1725280200000, // Updated epoch time in milliseconds
+    driverDetails: {
+      contactNumber: "3456789012",
+      name: "Bob White",
+    },
+  },
 ];
 
 module.exports = trips;
