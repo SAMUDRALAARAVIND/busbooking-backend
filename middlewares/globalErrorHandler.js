@@ -21,8 +21,8 @@ const handleDevelopmentError = (err, res) => {
   res.status(err.statusCode).json({
     success: false,
     error: err,
-    errMessage: err.message,
-    stackTrace: err.stackTrace,
+    message: err.message,
+    stackTrace: err.stack
   });
 };
 
