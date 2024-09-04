@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
+
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
 const cityRouter = require("./controllers/city");
 const tripRouter = require("./controllers/trip.js");
 const mongoose = require("mongoose");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -22,7 +22,7 @@ const handleDevelopmentError = (err, res) => {
     success: false,
     error: err,
     message: err.message,
-    stackTrace: err.stack,
+    stackTrace: err.stack
   });
 };
 
