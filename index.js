@@ -5,8 +5,8 @@ require("dotenv").config();
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
 const cityRouter = require("./controllers/city");
 const tripRouter = require("./controllers/trip.js");
+const seatRouter = require("./controllers/seat.js");
 const mongoose = require("mongoose");
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +17,7 @@ mongoose
 
 app.use("/city", cityRouter);
 app.use("/api/trips", tripRouter);
+app.use("/api/seats", seatRouter);
 
 app.use(globalErrorHandler);
 
