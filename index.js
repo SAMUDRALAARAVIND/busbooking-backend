@@ -1,16 +1,26 @@
 const express = require("express");
 const app = express();
-const cityRouter = require("./controllers/city");
-
 require("dotenv").config();
+
+const globalErrorHandler = require("./middlewares/globalErrorHandler");
+const cityRouter = require("./controllers/city");
+const tripRouter = require("./controllers/trip.js");
+const mongoose = require("mongoose");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("connected successfully"));
+
+app.use("/city", cityRouter);
+app.use("/api/trips", tripRouter);
+
+app.use(globalErrorHandler);
 
 const PORT = process.env.PORT || 8000;
 const MODE = process.env.NODE_ENV || "production";
-
-app.use("/city", cityRouter);
 
 app.listen(PORT, () => {
   console.log(`App is running at ${PORT} in ${MODE} mode`);

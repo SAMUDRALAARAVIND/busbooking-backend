@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+
+const { Schema, model } = require("mongoose");
 
 const genders = ["M", "F", "O"];
 
