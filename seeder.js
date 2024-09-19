@@ -16,11 +16,9 @@ const Bus = require("./models/bus.js");
 const Bookings = require("./models/booking.js");
 const City = require("./models/city.js");
 const Trip = require("./models/trip.js");
+const mongoConnection = require("./connection/mongoConnection.js");
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("connect successfully"))
-  .catch(console.log);
+mongoConnection()
 
 console.log("Seeder is running");
 
@@ -37,8 +35,10 @@ const importData = async () => {
     const cityIds = createdCity.map((city) => city._id);
     const busIds = createdBuses.map((bus) => bus._id);
 
+    let tripData = Array.from({ length: 1000 }, () => TripData[0]);
+
     const sampleTrip = getFormatedTripData(
-      TripData,
+      tripData,
       createdBuses,
       createdCity,
       cityIds,
@@ -62,19 +62,23 @@ const getFormatedTripData = (
 ) => {
   let cityIdCount = 0;
   let busidCount = 0;
-  return TripData.map((trip) => {
+  const currentTime = parseInt(Date.now() / 1000);
+  return TripData.map((trip, i) => {
     let boardingPoints = [];
     let droppingPoints = [];
+    const startT = currentTime + i * 2 * 60;
+    const endT = startT + 3 * 60 * 60;
+
     trip.droppingPoints.forEach((p, idx) => {
       const obj = {
-        ...p,
+        arrivalTime: endT - (trip.droppingPoints.length - i * 60),
         stopId: createdCity[cityIdCount + 1].stopPoints[idx].stopId,
       };
       droppingPoints.push(obj);
     });
     trip.boardingPoints.forEach((p, idx) => {
       const obj = {
-        ...p,
+        arrivalTime: startT + i * 60,
         stopId: createdCity[cityIdCount].stopPoints[idx].stopId,
       };
       boardingPoints.push(obj);
@@ -97,6 +101,8 @@ const getFormatedTripData = (
       price += 100;
     });
 
+    trip.startTime = startT;
+    trip.endTime = endT;
     const obj = {
       ...trip,
       source: cityIds[cityIdCount],
@@ -120,7 +126,7 @@ const deleteData = async () => {
     await Bus.deleteMany();
     await City.deleteMany();
     await Trip.deleteMany();
-    console.error(`Data Deleted`.red.inverse);
+    console.error(`Data Deleted.red`.inverse);
 
     process.exit();
   } catch (error) {
@@ -132,5 +138,5 @@ const deleteData = async () => {
 if (process.argv[2] === "-d") {
   deleteData();
 } else {
-  importData();
+  importData();
 }

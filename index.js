@@ -13,7 +13,7 @@ const cityRouter = require("./controllers/city");
 
 require("dotenv").config();
 const globalErrorHandler = require("./middlewares/globalErrorHandler");
-const cityRouter = require("./controllers/city");
+// const cityRouter = require("./controllers/city");
 const tripRouter = require("./controllers/trip.js");
 const mongoose = require("mongoose");
 
@@ -21,9 +21,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser())
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("connected successfully"));
+// mongoose
+//   .connect(process.env.MONGO_URI)
+//   .then(() => console.log("connected successfully"));
 
 
 
