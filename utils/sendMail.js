@@ -13,7 +13,7 @@ const sendMail = async (email, otp) => {
         from: process.env.EMAIL, 
         to: email, 
         subject : "Your OTP Code", 
-        text : `Your OTP code is ${otp} and will be Expire in 10 Minutes`, 
+        text : `Your OTP code is ${otp} `, 
     }
 
     await transporter.sendMail(mailOptions)

@@ -36,7 +36,6 @@ const registrationControler = async (req, res) => {
             contactNumber,
             password: hashedPassword,
             otp: otp,
-            isActive: false
         });
 
         await sendMail(email, otp)
@@ -117,14 +116,14 @@ const bookingDetail = async (req, res) => {
             return res.status(404).json({ message: 'Bus not found' });
         }
 
-       const seatPrices = seatsInfo.map((seat) => {
-        let totalPrice;
-           const priceInfo = trip.prices.map((p) => p.seatNumber === seat.seatNumber)
-           if (!priceInfo) {
-               throw new Error(`Price not found for seat ${seat.seatNumber}`);
-           }
-           return { ...seat, price: totalPrice += priceInfo.price };
-       })
+    //    const seatPrices = seatsInfo.map((seat) => {
+    //     let totalPrice;
+    //        const priceInfo = trip.prices.map((p) => p.seatNumber === seat.seatNumber)
+    //        if (!priceInfo) {
+    //            throw new Error(`Price not found for seat ${seat.seatNumber}`);
+    //        }
+    //        return { ...seat, price: totalPrice += priceInfo.price };
+    //    })
 
        res.status(201).json({
            message: 'Booking successful',
@@ -132,7 +131,7 @@ const bookingDetail = async (req, res) => {
            boardingPointId,
            droppingPointId,
            pocDetails,
-           seatPrices
+        //    seatPrices
        });
        
     } catch (error) {

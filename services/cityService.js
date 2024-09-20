@@ -2,6 +2,7 @@ const City = require("../models/city");
 
 const getAllCities = async () => {
   const cities = await City.find({});
+  // console.log(cities)
   const response = {
     cities: cities.map((city) => ({
       cityId: city._id,
@@ -9,7 +10,9 @@ const getAllCities = async () => {
       state: city.state,
     })),
   };
-  return response;
+  const data = response.cities
+  console.log(data)
+  return data;
 };
 
 module.exports = { getAllCities };
