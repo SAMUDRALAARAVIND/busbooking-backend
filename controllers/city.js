@@ -4,8 +4,9 @@ const router = require("express").Router();
 
 router.get("/cities", async (req, resp) => {
   // sends list of cities
-  try {
-    resp.status(200).json(getAllCities());
+  try { 
+    const allCities = await getAllCities();
+    resp.status(200).json(allCities);
   } catch (error) {
     req.status(500).json({
       message: "Server error",
