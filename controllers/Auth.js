@@ -36,7 +36,6 @@ const registrationControler = async (req, res) => {
             contactNumber,
             password: hashedPassword,
             otp: otp,
-            isActive: false
         });
 
         await sendMail(email, otp)

@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoConnection = require("./connection/mongoConnection");
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const router = require("./routes/routes");
@@ -8,14 +10,14 @@ const router = require("./routes/routes");
 
 const app = express();
 
-const cityRouter = require("./controllers/city");
-
-
-require("dotenv").config();
-const globalErrorHandler = require("./middlewares/globalErrorHandler");
 // const cityRouter = require("./controllers/city");
+
+app.use(cors());
+// require("dotenv").config();
+const globalErrorHandler = require("./middlewares/globalErrorHandler");
+const cityRouter = require("./controllers/city");
 const tripRouter = require("./controllers/trip.js");
-const mongoose = require("mongoose");
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

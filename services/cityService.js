@@ -9,6 +9,7 @@ const getAllCities = async () => {
       state: city.state,
     })),
   };
+  console.log(response)
   return response;
 };
 
