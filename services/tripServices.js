@@ -17,7 +17,9 @@ const getAvailableSeats = async (bus, tripId) => {
 };
 
 const getTrips = async (query) => {
-  let { sourceCityId, destinationCityId, travelDate } = query;
+  const { sourceCityId, destinationCityId, travelDate } = query;
+
+  console.log(query)
 
   const today12AM = new Date();
   today12AM.setHours(0, 0, 0, 0);

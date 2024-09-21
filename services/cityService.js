@@ -9,8 +9,9 @@ const getAllCities = async () => {
       state: city.state,
     })),
   };
-  console.log(response)
-  return response;
+  const data = response.cities
+  console.log(response.cities)
+  return data;
 };
 
 module.exports = { getAllCities };

@@ -5,7 +5,7 @@ const router = require("express").Router();
 router.get("/cities", async (req, resp) => {
   // sends list of cities
   try {
-    const city = getAllCities()
+    const city = await getAllCities()
     resp.status(200).json(city);
   } catch (error) {
     req.status(500).json({
