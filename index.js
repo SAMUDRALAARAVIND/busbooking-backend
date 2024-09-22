@@ -18,8 +18,8 @@ const MODE = process.env.NODE_ENV || "production";
 connectDb();
 
 app.use("/city", cityRouter);
-app.use("/register" , signUpRouter);
-app.use("/auth" , loginRouter);
+app.use("/register", signUpRouter);
+app.use("/auth", loginRouter);
 app.use("/booking", bookingRouter);
 
 app.use("/otp", router);
