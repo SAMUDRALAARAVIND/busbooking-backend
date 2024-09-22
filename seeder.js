@@ -32,7 +32,7 @@ const importData = async () => {
     // delete data old
     await Trip.deleteMany();
     //inseting
-    let createdCity
+    let createdCity  = false 
     const createdUsers = await User.insertMany(UserData);
     const createdBuses = await Bus.insertMany(BusData);
     //  createdCity = await City.insertMany(CityData);
