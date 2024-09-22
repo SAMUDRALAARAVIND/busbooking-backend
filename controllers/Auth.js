@@ -9,24 +9,73 @@ const bookingDetailValidator = require('../utils/bookingDetailValidator');
 const tripModel = require('../models/trip');
 const busModel = require('../models/bus')
 
-const registrationControler = async (req, res) => {
-    console.log("hit")
-    const { fullName, gender, dob, email, contactNumber, password } = req.body;
-    try {
+// const registrationControler = async (req, res) => {
+//     console.log("hit")
+//     const { fullName, gender, dob, email, contactNumber, password } = req.body;
 
+//     console.log(req.body)
+//     try {
+
+//         let user = await userModel.findOne({
+//             $or: [{ email }, { contactNumber }]
+//         })
+//         if (user) {
+//             return res.status(400).json({ message: 'User already exists' });
+//         }
+
+//         const otp = generateOTP();
+
+//         const hashedPassword = await bcrypt.hash(
+//             password,
+//             parseInt(process.env.SALT)
+//         );
+
+//         user = new userModel({
+//             fullName,
+//             gender,
+//             dob,
+//             email,
+//             contactNumber,
+//             password: hashedPassword,
+//             otp: otp,
+//         });
+
+//         await sendMail(email, otp)
+
+//         await user.save()
+
+//         res.cookie('userDetail', JSON.stringify(user)), {
+//             httpOnly: true
+//         }
+//         // console.log(res.cookie.userDetail)
+          
+//         res.status(200).json(user)
+//     } catch (error) {
+//         return res.send({
+//             message: 'Failed to register user',
+//             error
+//         })
+//     }
+// }
+
+const registrationControler = async (req, res) => {
+    console.log("hit");
+    const { fullName, gender, dob, email, contactNumber, password } = req.body;
+
+    console.log("Request body:", req.body);
+    try {
         let user = await userModel.findOne({
             $or: [{ email }, { contactNumber }]
-        })
+        });
         if (user) {
             return res.status(400).json({ message: 'User already exists' });
         }
 
         const otp = generateOTP();
+        console.log("Generated OTP:", otp);
 
-        const hashedPassword = await bcrypt.hash(
-            password,
-            parseInt(process.env.SALT)
-        );
+        const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT));
+        console.log("Hashed Password:", hashedPassword);
 
         user = new userModel({
             fullName,
@@ -36,39 +85,60 @@ const registrationControler = async (req, res) => {
             contactNumber,
             password: hashedPassword,
             otp: otp,
+            emailAuthenticate : false
         });
 
-        await sendMail(email, otp)
+        await sendMail(email, otp);
+        await user.save();
 
-        res.cookie('userDetail', JSON.stringify(user)), {
-            httpOnly: true
-        }
-        // console.log(res.cookie.userDetail)
-        res.status(200).json(user)
+        const token = jwt.sign(
+            { userId: user._id, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        );
+        console.log(token)
+        res.status(200).json(token);
     } catch (error) {
-        return res.send({
+        console.error("Error saving user:", error);
+        return res.status(500).json({
             message: 'Failed to register user',
-            error
-        })
+            error: error.message
+        });
     }
 }
 
 
 const otpVerify = (req, res) => {
+    
     const { otp } = req.body
-    console.log("hit otp verify")
-    let userDetail = req.cookies.userDetail;
+    console.log(req.body)
+
+    const token = req.headers.authorization?.split(" ")[1];
+
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+    }
+
+    console.log(userDetail)
     if (userDetail) {
         userDetail = JSON.parse(userDetail)
     }
     try {
-        // const userDetail = userModel.findOne({email: userDetail.email})
+
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const userDetail = userModel.findOne({email: decoded.email})
+       
         if (!userDetail) {
             return res.status(401).json({ message: 'User not found' })
         }
         if (userDetail.otp !== otp) {
             return res.status(401).json({ message: 'Incorrect OTP' })
+        } 
+
+        if(userDetail.otp == otp){
+            userDetail.emailAuthenticate = true
         }
+
         return res.status(200).json({ message: "otp successfull verified" })
     } catch (error) {
         return res.status(401).json({ message: error })

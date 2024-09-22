@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema, model } = require("mongoose");
 const { genders } = require("./booking.js");
-const validator = require("validator"); // installed validator package
+const validator = require("validator"); 
 
 const userSchema = new Schema({
   fullName: {
@@ -16,7 +16,7 @@ const userSchema = new Schema({
     required: [true, "Gender is required"],
   },
   dob: {
-    type: Number,
+    type: String,
     required: true,
   },
   email: {
@@ -24,7 +24,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Please enter your email"],
     unique: true,
-    // validate: [validator.isEmail, "Please provide a valid email"],
+    validate: [validator.isEmail, "Please provide a valid email"],
   },
   contactNumber: {
     type: String,
