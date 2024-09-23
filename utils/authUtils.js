@@ -34,5 +34,23 @@ const userDataValidation = ({ fullName, email, password, gender }) => {
   });
 };
 
+const userOtpMailValidate = ({ email }) => {
+  return new Promise((resolve, reject) => {
+    console.log(email);
+    if (!email) {
+      return reject("Missing required user data");
+    }
 
-module.exports = { userDataValidation, isEmailValidate };
+    if (typeof email !== "string") return reject("Email must be a string");
+
+    if (!isEmailValidate(email)) {
+      return reject("Email format is incorrect");
+    }
+
+    resolve();
+
+  })
+}
+
+
+module.exports = { userDataValidation, isEmailValidate, userOtpMailValidate };

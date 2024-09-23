@@ -1,55 +1,58 @@
-const userModel = require("../models/user");
+const Otp = require("../models/otp");
+const { userOtpMailValidate } = require("../utils/authUtils");
 const { sendVerificationMail } = require("../utils/emailUtils");
 
-const verifyOtp = async ({ email, otp }) => {
+const generateOtp = async ({ email }) => {
     try {
-        const user = await userModel.findOne({ email });
-        if (!user) {
-            throw new Error("User not found");
+
+        await userOtpMailValidate({ email });
+
+        const otpRecord = await Otp.findOne({ email });
+
+        if (otpRecord) {
+            console.log("OTP already generated for this email.");
+            return "An OTP has already been generated for this email. Please check your inbox."
         }
 
-        if (user.otp !== otp) {
-            throw new Error("Incorrect OTP");
-        }
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
 
-        if (user.otpExpires < Date.now()) {
-            throw new Error("expired OTP");
-        }
-        
-        user.isEmailVerified = true;
-        user.otp = undefined;
-        user.otpExpires = undefined;
+        const newOtp = new Otp({ email, otp: otp });
+        await newOtp.save();
 
-        await user.save();
-        return "Otp successfull verified";
+        // Send the new OTP via email
+        await sendVerificationMail(email, newOtp.otp);
+        return "Otp send to your Mail";
     } catch (error) {
-        throw new Error(error.message);
+        console.log(error)
+        throw new Error(error);
     }
 }
 
-const regenerateOtp = async ({ email }) => {
+const verifyOtp = async ({ email, otp }) => {
     try {
-        const user = await userModel.findOne({ email });
-        if (!user) {
-            throw new Error("User not found");
+        const otpRecord = await Otp.findOne({ email });
+        if (!otpRecord) {
+            return "User not found";
         }
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
-        const otpExpires = Date.now() + 10 * 60 * 1000;
 
-        user.otp = otp;
-        user.otpExpires = otpExpires;
+        if (otpRecord.otp !== otp) {
+            return "Incorrect OTP";
+        }
 
-        await user.save();
+        if (otpRecord.isEmailVerified) {
+            return "OTP has already been verified.";
+        }
 
-        // Send the new OTP via email
-        await sendVerificationMail(email, otp);
-        return "Otp send to your Mail";
+        otpRecord.isEmailVerified = true;
+        await otpRecord.save();
+
+        return "Otp successfull verified";
     } catch (error) {
-        throw new Error(error.message);
+        throw new Error(error);
     }
 }
 
 module.exports = {
-    verifyOtp,
-    regenerateOtp
+    generateOtp,
+    verifyOtp
 };

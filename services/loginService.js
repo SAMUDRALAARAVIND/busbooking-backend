@@ -1,19 +1,22 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/user");
+const Otp = require("../models/otp");
 
 const userLogin = async ({ email, password }) => {
   if (!email || !password) {
-    throw new Error("please enter your email and password")
+    throw new Error("Please enter your email and password")
   }
   try {
     const user = await userModel.findOne({ email });
+    const otpRecord = await Otp.findOne({ email });
+    console.log(otpRecord);
 
     if (!user) {
       throw new Error("User does not exist");
     }
 
-    if (!user.isEmailVerified) {
+    if (otpRecord === null) {
       throw new Error("Verify your email before login.");
     }
 
