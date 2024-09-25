@@ -10,7 +10,6 @@ const generateOtp = async ({ email }) => {
         const otpRecord = await Otp.findOne({ email });
 
         if (otpRecord) {
-            console.log("OTP already generated for this email.");
             return "An OTP has already been generated for this email. Please check your inbox."
         }
 
@@ -19,11 +18,9 @@ const generateOtp = async ({ email }) => {
         const newOtp = new Otp({ email, otp: otp });
         await newOtp.save();
 
-        // Send the new OTP via email
         await sendVerificationMail(email, newOtp.otp);
         return "Otp send to your Mail";
     } catch (error) {
-        console.log(error)
         throw new Error(error);
     }
 }
@@ -35,12 +32,12 @@ const verifyOtp = async ({ email, otp }) => {
             return "User not found";
         }
 
-        if (otpRecord.otp !== otp) {
-            return "Incorrect OTP";
-        }
-
         if (otpRecord.isEmailVerified) {
             return "OTP has already been verified.";
+        }
+
+        if (otpRecord.otp !== otp) {
+            return "Incorrect OTP";
         }
 
         otpRecord.isEmailVerified = true;

@@ -10,7 +10,6 @@ const userLogin = async ({ email, password }) => {
   try {
     const user = await userModel.findOne({ email });
     const otpRecord = await Otp.findOne({ email });
-    console.log(otpRecord);
 
     if (!user) {
       throw new Error("User does not exist");

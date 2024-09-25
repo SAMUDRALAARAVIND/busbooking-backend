@@ -1,6 +1,5 @@
 const bcrypt = require("bcryptjs");
 const { userDataValidation } = require("../utils/authUtils");
-// const { sendVerificationMail } = require("../utils/emailUtils");
 const userModel = require("../models/user");
 const Otp = require("../models/otp");
 
@@ -13,16 +12,17 @@ const userSignUp = async (userData) => {
     const existingUser = await userModel.findOne({
       $or: [{ email }, { contactNumber }]
     });
+
     if (existingUser) {
-      return "User already exists with this email";
+      throw new Error("User already exists with this email");
     }
 
     const hashedPassword = await bcrypt.hash(password, parseInt(process.env.SALT));
 
     const otpRecord = await Otp.findOne({ email });
-    console.log(otpRecord)
+    
     if (!otpRecord || !otpRecord.isEmailVerified) {
-      throw "OTP not verified for this email.";
+      throw new Error("OTP not verified for this email.")
     }
 
     const newUser = new userModel({
@@ -36,10 +36,10 @@ const userSignUp = async (userData) => {
 
     await newUser.save();
 
-    return { message: "User registered successfully." };
+    return "User registered successfully.";
 
   } catch (error) {
-    return error;
+    throw new Error(error.message || error);
   }
 };
 
