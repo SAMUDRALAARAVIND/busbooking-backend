@@ -19,10 +19,8 @@ const sendVerificationMail = (email, otp) => {
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
-                console.error("Error sending email:", error);
                 reject("OTP sharing failed. Please try again.");
             } else {
-                console.log("Email sent: " + info.response);
                 resolve("OTP sent successfully.");
             }
         });

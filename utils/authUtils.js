@@ -36,7 +36,6 @@ const userDataValidation = ({ fullName, email, password, gender }) => {
 
 const userOtpMailValidate = ({ email }) => {
   return new Promise((resolve, reject) => {
-    console.log(email);
     if (!email) {
       return reject("Missing required user data");
     }
