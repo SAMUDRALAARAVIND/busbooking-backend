@@ -8,6 +8,7 @@ const tripRouter = require("./controllers/trip.js");
 const signUpRouter = require("./controllers/signUp");
 const loginRouter = require("./controllers/login");
 const bookingRouter = require("./controllers/booking");
+const seatRouter = require("./controllers/seat.js");
 const cookieParser = require("cookie-parser");
 
 const mongoose = require("mongoose");
@@ -23,6 +24,7 @@ app.use(cookieParser());
 
 app.use("/city", cityRouter);
 app.use("/api/trips", tripRouter);
+app.use("/api/seat", seatRouter);
 app.use("/register", signUpRouter);
 app.use("/auth", loginRouter);
 app.use("/booking", bookingRouter);
