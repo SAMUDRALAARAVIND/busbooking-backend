@@ -8,14 +8,14 @@ const cities = [
     lng: 72.8777,
     stopPoints: [
       {
-        stopId: 1001, // Unique Numeric ID
+        stopId: 1001,
         title: "Mumbai Central",
         directions: "Main Bus Station",
         lat: 18.9716,
         lng: 72.8194,
       },
       {
-        stopId: 1002, // Unique Numeric ID
+        stopId: 1002,
         title: "Andheri East",
         directions: "Near Metro Station",
         lat: 19.1136,
@@ -322,9 +322,9 @@ const cities = [
         directions: "Near Beach Road",
         lat: 13.0017,
         lng: 80.2663,
-      }
+      },
     ],
-    pincode: 600001
+    pincode: 600001,
   },
   {
     name: "Hyderabad",
@@ -387,9 +387,9 @@ const cities = [
         directions: "Near Gachibowli Stadium",
         lat: 17.4399,
         lng: 78.3538,
-      }
+      },
     ],
-    pincode: 500001
+    pincode: 500001,
   },
   {
     name: "Pune",
@@ -452,9 +452,9 @@ const cities = [
         directions: "Near Pimpri Chowk",
         lat: 18.6285,
         lng: 73.7997,
-      }
+      },
     ],
-    pincode: 411001
+    pincode: 411001,
   },
   {
     name: "Ahmedabad",
@@ -517,11 +517,10 @@ const cities = [
         directions: "Near Kalupur Railway Station",
         lat: 23.0222,
         lng: 72.6025,
-      }
+      },
     ],
-    pincode: 380001
-  }
-  
+    pincode: 380001,
+  },
 ];
 
 module.exports = cities;

@@ -32,13 +32,15 @@ const importData = async () => {
     // delete data old
     await Trip.deleteMany();
     //inseting
-    let createdCity  = false 
+    let createdCity = false;
     const createdUsers = await User.insertMany(UserData);
     const createdBuses = await Bus.insertMany(BusData);
     //  createdCity = await City.insertMany(CityData);
     const busIds = createdBuses.map((bus) => bus._id);
-    const cities = await City.find({})
-    const cityIds = createdCity ? createdCity.map((city) => city._id): cities.map((city) => city._id);
+    const cities = await City.find({});
+    const cityIds = createdCity
+      ? createdCity.map((city) => city._id)
+      : cities.map((city) => city._id);
 
     let tripData = Array.from({ length: 200 }, () => TripData[0]);
 
