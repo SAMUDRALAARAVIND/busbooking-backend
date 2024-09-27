@@ -24,11 +24,13 @@ const userLogin = async ({ email, password }) => {
       throw new Error("Invalid credentials");
     }
 
-    const token = jwt.sign(
-      { userId: user._id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" }
-    );
+    const tokenData = {
+      userId: user._id,
+    };
+
+    const token = await jwt.sign(tokenData, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    });
 
     return token;
   } catch (error) {

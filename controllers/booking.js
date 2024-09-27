@@ -5,7 +5,7 @@ const router = require("express").Router();
 
 router.post("/book", authenticateUser, async (req, res) => {
   try {
-    const bookedDetails = await bookTrip(req.body, req.user);
+    const bookedDetails = await bookTrip(req.body, req.id);
     return res
       .status(200)
       .json({ message: "Booking Successful", bookedDetails });
