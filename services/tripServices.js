@@ -78,6 +78,7 @@ const getTrips = async (query) => {
       if (minPrice > seatPrice.price) minPrice = seatPrice.price;
       if (maxPrice < seatPrice.price) maxPrice = seatPrice.price;
     });
+    console.log(bus, trip);
 
     response.trips.push({
       busId: bus._id,
