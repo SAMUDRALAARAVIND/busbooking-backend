@@ -13,6 +13,7 @@ const amenities = [
   "CHARGING_PORT",
   "EMERGENCY_EXIT",
   "WATER",
+  "CCTV"
 ];
 
 const SeatTypes = ["SEATER", "SLEEPER"];

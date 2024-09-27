@@ -83,7 +83,7 @@ const getTrips = async (query) => {
       busId: bus._id,
       tripId: trip._id,
       // used while booking any seats for this trip.
-      busPartner: bus.busPartener, //bus
+      busPartner: bus.busPartner, //bus
       departureTime: trip.startTime,
       arrivalTime: trip.endTime, // epoch time
       amenities: bus.amenities, //bus
