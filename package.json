@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prod": "cross-env NODE_ENV=production nodemon index.js",
-    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "start": "node index.js",
+    "prod": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development node index.js",
     "data:import": "node seeder",
     "data:destroy": "node seeder -d"
   },
