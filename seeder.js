@@ -28,6 +28,7 @@ const importData = async () => {
   try {
     await User.deleteMany();
     // await Bus.deleteMany();
+
     await City.deleteMany();
     // delete data old
     await Trip.deleteMany();
@@ -43,7 +44,7 @@ const importData = async () => {
       ? createdCity.map((city) => city._id)
       : cities.map((city) => city._id);
 
-    let tripData = Array.from({ length: 1000 }, () => TripData[0]);
+    let tripData = Array.from({ length: 100000 }, () => TripData[0]);
 
     const sampleTrip = getFormatedTripData(
       tripData,

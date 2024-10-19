@@ -5,8 +5,7 @@ const busModel = require("../models/bus.js");
 const bookingModel = require("../models/bus.js");
 const { Types } = require("mongoose");
 
-const getAvailableSeats = async (bus, tripId) => {
-  const bookings = await bookingModel.find({ tripId });
+const getAvailableSeats = (bus, bookings) => {
   const totalSeat = bus.layout?.upperDeck.length + bus.layout.lowerDeck.length;
   let availableSeats = totalSeat;
   if (bookings.length) {
@@ -60,15 +59,32 @@ const getTrips = async (query) => {
     throw new CustomError("Requested City not Found", 404);
   }
 
-  const trips = await tripModel.find(searchFilter).populate("busId");
+  const tripFilterOjb = {
+    _id: 1,
+    startTime: 1,
+    endTime: 1,
+    prices: 1,
+    boardingPoints: 1,
+    droppingPoints: 1,
+  };
+  const trips = await tripModel
+    .find(searchFilter, tripFilterOjb)
+    .populate("busId", "_id busPartner amenities layout busType");
 
+  const tripIds = trips.map((item) => ({ tripId: item._id }));
+  let allBookigs = [];
+  if (tripIds.length > 0) {
+    allBookings = await bookingModel.find(
+      { $or: tripIds },
+      { seatsInfo: 1, tripId: 1 }
+    );
+  }
   const response = {};
   response.success = true;
   response.results = trips.length;
 
   response.boardingPoints = sourceCity?.stopPoints;
   response.dropingPoints = destinationCity?.stopPoints;
-
   response.trips = [];
   for (let trip of trips) {
     const bus = trip.busId;
@@ -78,7 +94,7 @@ const getTrips = async (query) => {
       if (minPrice > seatPrice.price) minPrice = seatPrice.price;
       if (maxPrice < seatPrice.price) maxPrice = seatPrice.price;
     });
-
+    const bookings = allBookings.filter((item) => item.tripId === trip._id);
     response.trips.push({
       busId: bus._id,
       tripId: trip._id,
@@ -87,7 +103,7 @@ const getTrips = async (query) => {
       departureTime: trip.startTime,
       arrivalTime: trip.endTime, // epoch time
       amenities: bus.amenities, //bus
-      availableSeats: await getAvailableSeats(bus, trip._id),
+      availableSeats: getAvailableSeats(bus, bookings),
       busType: bus.busType,
       minPrice,
       maxPrice,

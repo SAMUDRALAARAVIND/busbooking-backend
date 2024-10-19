@@ -6,7 +6,7 @@
     "start": "node index.js",
     "prod": "cross-env NODE_ENV=production node index.js",
     "dev": "cross-env NODE_ENV=development node index.js",
-    "data:import": "node seeder",
+    "data:import": "node --max-old-space-size=16384 seeder",
     "data:destroy": "node seeder -d"
   },
   "keywords": [],

@@ -21,12 +21,13 @@ const getFormatSeatLayout = (seats, trip, bookings) => {
 };
 
 exports.getSeatLayout = async (query) => {
-  const trip = await tripModel.findById(query.tripId).populate("busId");
+  const trip = await tripModel
+    .findById(query.tripId, { prices: 1 })
+    .populate("busId", "layout");
   const bookings = await bookingModel.find({ tripId: query.tripId });
 
   if (!trip)
     throw new CustomError(`No Trip Found for the tripId ${query.tripId}`, 404);
-
   const upperDeck = trip.busId.layout?.upperDeck || [];
   const lowerDeck = trip.busId.layout?.lowerDeck || [];
 
