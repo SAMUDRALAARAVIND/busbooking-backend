@@ -2,16 +2,24 @@ const tripModel = require("../models/trip.js");
 const CustomError = require("./../utils/createCustomError.js");
 const cityModel = require("../models/city.js");
 const busModel = require("../models/bus.js");
-const bookingModel = require("../models/bus.js");
+const { bookingModel } = require("../models/booking.js");
 const { Types } = require("mongoose");
 
 const getAvailableSeats = (bus, bookings) => {
   const totalSeat = bus.layout?.upperDeck.length + bus.layout.lowerDeck.length;
   let availableSeats = totalSeat;
+
   if (bookings.length) {
-    const bookedSeats = bookings.reduce((a, c) => a + c.seatsInfo.length, 0);
+    console.log(bookings);
+    const bookedSeats = bookings.reduce((a, c) => {
+      console.log(c.seatsInfo.length);
+      return a + c.seatsInfo.length;
+    }, 0);
+    console.log(bookedSeats);
+
     availableSeats = totalSeat - bookedSeats;
   }
+  // console.log(availableSeats);
   return availableSeats;
 };
 
@@ -70,19 +78,19 @@ const getTrips = async (query) => {
   const trips = await tripModel
     .find(searchFilter, tripFilterOjb)
     .populate("busId", "_id busPartner amenities layout busType");
-
   const tripIds = trips.map((item) => ({ tripId: item._id }));
-  let allBookigs = [];
+
+  let allBookings = [];
   if (tripIds.length > 0) {
     allBookings = await bookingModel.find(
       { $or: tripIds },
       { seatsInfo: 1, tripId: 1 }
     );
   }
+  console.log("allBookings", allBookings);
   const response = {};
   response.success = true;
   response.results = trips.length;
-
   response.boardingPoints = sourceCity?.stopPoints;
   response.dropingPoints = destinationCity?.stopPoints;
   response.trips = [];
@@ -94,7 +102,10 @@ const getTrips = async (query) => {
       if (minPrice > seatPrice.price) minPrice = seatPrice.price;
       if (maxPrice < seatPrice.price) maxPrice = seatPrice.price;
     });
-    const bookings = allBookings.filter((item) => item.tripId === trip._id);
+    const bookings = allBookings.filter((item) => {
+      const tripId = new Types.ObjectId(item.tripId);
+      return tripId.equals(trip._id);
+    });
     response.trips.push({
       busId: bus._id,
       tripId: trip._id,

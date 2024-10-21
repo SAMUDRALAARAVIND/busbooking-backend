@@ -3,6 +3,7 @@ const { userOtpMailValidate } = require("../utils/authUtils");
 const { sendVerificationMail } = require("../utils/emailUtils");
 
 const generateOtp = async ({ email }) => {
+  console.log(email);
   try {
     await userOtpMailValidate({ email });
 

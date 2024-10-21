@@ -5,7 +5,7 @@ const Otp = require("../models/otp");
 
 const userSignUp = async (userData) => {
   const { fullName, gender, dob, email, contactNumber, password } = userData;
-
+  console.log(userData);
   try {
     await userDataValidation({
       fullName,
@@ -14,7 +14,7 @@ const userSignUp = async (userData) => {
       contactNumber,
       password,
     });
-
+    console.log(userData);
     const existingUser = await userModel.findOne({
       $or: [{ email }, { contactNumber }],
     });

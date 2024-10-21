@@ -3,6 +3,7 @@ const { verifyOtp, generateOtp } = require("../services/OtpService");
 const router = require("express").Router();
 
 router.post("/generate-otp", async (req, res) => {
+  console.log(req.body);
   const { email } = req.body;
 
   try {

@@ -4,6 +4,7 @@ const router = require("express").Router();
 
 router.post("/signUp", async (req, res) => {
   try {
+    console.log(req.body);
     const result = await userSignUp(req.body);
     return res.status(200).json({ message: result });
   } catch (error) {
