@@ -27,23 +27,37 @@ console.log("Seeder is running");
 const importData = async () => {
   try {
     await User.deleteMany();
-    await Bus.deleteMany();
+    // await Bus.deleteMany();
+
     await City.deleteMany();
+    // delete data old
     await Trip.deleteMany();
     //inseting
+    let createdCity = false;
     const createdUsers = await User.insertMany(UserData);
-    const createdBuses = await Bus.insertMany(BusData);
-    const createdCity = await City.insertMany(CityData);
-    const cityIds = createdCity.map((city) => city._id);
+    // const createdBuses = await Bus.insertMany(BusData);
+    const createdBuses = await Bus.find({});
+    createdCity = await City.insertMany(CityData);
     const busIds = createdBuses.map((bus) => bus._id);
+    // const cities = await City.find({});
+    const cityIds = createdCity
+      ? createdCity.map((city) => city._id)
+      : cities.map((city) => city._id);
+
+    let tripData = Array.from({ length: 100000 }, () => TripData[0]);
 
     const sampleTrip = getFormatedTripData(
-      TripData,
+      tripData,
       createdBuses,
-      createdCity,
+      createdCity ? createdCity : cities,
       cityIds,
       busIds
     );
+    // console.log(sampleTrip);
+    // for (let i = 0; i < sampleTrip.length; i++) {
+    //   await Trip.create(sampleTrip[i]);
+    //   console.log("Trip-inserted", i + 1);
+    // }
     await Trip.insertMany(sampleTrip);
     console.log("Data Inserted".green.inverse);
     process.exit();
@@ -62,41 +76,46 @@ const getFormatedTripData = (
 ) => {
   let cityIdCount = 0;
   let busidCount = 0;
-  return TripData.map((trip) => {
+  const currentTime = parseInt(Date.now() / 1000);
+  return TripData.map((trip, i) => {
     let boardingPoints = [];
     let droppingPoints = [];
+    const startT = currentTime + i * 8 * 60;
+
+    const endT = startT + (Math.floor(Math.random() * 10) + 1) * 60 * 60;
+
     trip.droppingPoints.forEach((p, idx) => {
       const obj = {
-        ...p,
+        arrivalTime: endT - (trip.droppingPoints.length - i * 60),
         stopId: createdCity[cityIdCount + 1].stopPoints[idx].stopId,
       };
       droppingPoints.push(obj);
     });
     trip.boardingPoints.forEach((p, idx) => {
       const obj = {
-        ...p,
+        arrivalTime: startT + i * 60,
         stopId: createdCity[cityIdCount].stopPoints[idx].stopId,
       };
       boardingPoints.push(obj);
     });
 
-    let price = 500;
+    let p = [500, 800, 1300, 1900];
     let prices = [];
     createdBuses[busidCount].layout?.upperDeck?.forEach((seat) => {
       prices.push({
         seatNumber: seat.seatNumber,
-        price,
+        price: p[Math.floor(Math.random() * 4)],
       });
-      price += 100;
     });
     createdBuses[busidCount].layout?.lowerDeck?.forEach((seat) => {
       prices.push({
         seatNumber: seat.seatNumber,
-        price,
+        price: p[Math.floor(Math.random() * 4)],
       });
-      price += 100;
     });
 
+    trip.startTime = startT;
+    trip.endTime = endT;
     const obj = {
       ...trip,
       source: cityIds[cityIdCount],

@@ -1,4 +1,3 @@
-
 const { Schema, model } = require("mongoose");
 
 const genders = ["M", "F", "O"];
@@ -31,12 +30,11 @@ const bookingSchema = new Schema({
     ],
   },
   pocDetails: {
-    // TODO: add validations for both phoneNumber & email
     phoneNumber: String,
     email: String,
   },
-  boardingPointId: Number,
-  droppingPointId: Number,
+  boardingPointId: Schema.Types.ObjectId,
+  droppingPointId: Schema.Types.ObjectId,
 });
 
 const bookingModel = model("Booking", bookingSchema);
